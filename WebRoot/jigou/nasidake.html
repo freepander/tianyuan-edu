@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>纳斯达克</title>
+	<link rel="stylesheet" type="text/css" href="css/skrollr.css" />
+	<script type="text/javascript" src="js/skrollr.min.js"></script>
+	<style type="text/css">
+	body{background-color: #0c5da4; width: 100%;}
+	*{margin:0;padding: 0; border: none;}
+	#loading{position: absolute; top: 0; left: 0; width: 100%; height: 100%;  z-index: 800; background:#fff;}
+	#loading img{width: 85px; height: 85px; margin: auto; display: block; margin-top: 300px; }
+	#back{position: fixed; bottom: 0; right: 0; width: 100px; height: 70px; background-image: url('img/back_4.png'); z-index: 800;}
+	</style>
+</head>
+<body>
+	<div id="loading">
+      <img src="img/loading4.gif" />
+    </div>
+    <a id="back" href="javascript:history.go(-1);"> </a>
+	<div style="position: absolute; top: 0; left: 0; width: 100%; height: 84px; z-index:10000;">
+		<a href="../" style="display: block; margin-left: auto; margin-right: auto; width: 100px; height: 50px; background: url(img/logo.png);z-index: 1000;"></a>
+	</div>
+	<div style="width: 100%; height: 84px; position: fixed; top: 0; left: 0; background: #12325e; border-bottom: 6px solid #0c5da4; z-index:10000;">
+		<img src="img/nasidake/logo.png" style="position: absolute; display: block; top: 0;left: 0;width: 339px; height: 84px; z-index: 2000;">
+		<a href="javascript:ib_wopen();" style="display: block; width: 65px; height: 76px; background: url('img/nasidake/yuyue1.jpg');"
+		data-1="right: 100px; top: 10px;"></a>
+	</div>
+	<img src="img/nasidake/bg1.jpg"
+		data-1="left: 333px; top: 90px;"
+		data-1000="left: -1026px;">
+	<img src="img/nasidake/bg2.jpg"
+		data-1="left: 1359px; top: 90px;"
+		data-1000="left: 0px;"
+		data-1500=""
+		data-2500="left: -636px">
+	<img src="img/nasidake/bg3.jpg"
+		data-1="left:2385px; top: 90px;"
+		data-1000="left: 1026px;"
+		data-1500=""
+		data-2500="left: 390px;">
+	<div style="width: 259px; height: 100%; background: #0c5da4; color: #FFF;padding-left: 40px; padding-top: 20px; padding-right: 40px;"
+		data-1="left: 0px; top: 90px;"
+		data-1000="left: -339px;">
+		<h2 style=" margin-bottom: 10px;">机构简介</h2>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;作为专业的英语培训机构 － 纳斯达克国际英语学校，历经20年时间，不断发展壮大，先后从美国到香港，又从香港到中国大陆，为社会各界成功培养了近万名学员。一路下来，纳斯达克始终提倡“咖啡、理想、微笑”的乐观学习理念，为企业和个人提供最为专业的高层次语言培训的办学目标。励精图治，不断进取，运用纳斯达克特有的“多维学习法”，使纳斯达克学员们在快乐轻松的氛围中，轻松掌握英语！</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;2004年，纳斯达克在南京设立了大陆的第一家分支机构。2005年3月，进驻北方名城 － 哈尔滨，它的出现开创了哈尔滨专业英语培训的先河。纳斯达克在哈市的五年中，凭借其先进的管理理念、纯熟的教学经验、优秀的师资团队，先后与LG、哈尔滨啤酒、夏普、西门子、KLINE航运公司、国家电网等知名企业建立了长期的合作关系。成功的培养了一批又一批的英语学习者，为他们在追求理想的过程中，铺平了道路，实现了英语水平上的飞跃。</p>
+	</div>
+	<div style="width: 434px; height: 100%; background: #0c5da4; color: #FFF;"
+		data-1="right: -434px; top: 90px;"
+		data-1000="right: 0px;"
+		data-1500=""
+		data-2500="right: -434px;">
+		<h3 style="margin-top: 20px; margin-left: 20px; margin-bottom: 20px;">课程类型</h3>
+		<p style="padding-left: 20px; line-height: 20px;">零起点课程――BEIC（Basic English Intensive Course）<br><br>基础级――Beginner stage　　<br>初级――Intermediate stage　<br>中级――Upper Intermediate stage　<br>高级――Advanced stage　<br>专业级――Advanced+ stage　<br>商务入门级――Business stage　<br>商务专家级――Business+ stage　<br>商务超级――Business＋＋stage<br>雅思培训<br>托福培训<br>四六级培训<br>SAT<br>BEC<br></p>
+	</div>
+	<div style="width: 390p; height: 100%; background: #0c5da4;"
+		data-1="left: -390px; top: 90px;"
+		data-1500=""
+		data-2500="left: 0px;">
+		<img src="img/nasidake/wenzi1.jpg">
+
+	</div>
+    <script src="js/jquery.js"></script>
+	<script type="text/javascript">
+	$(window).load(function(){
+		skrollr.init();
+		$('#loading').hide(400);
+	});
+	//去除链接虚框
+    $('a').bind('focus',function(){if(this.blur){ this.blur();}});
+	</script>
+	<a id="ibangkf" href="http://www.ibangkf.com">网站客服</a>
+<script type="text/javascript" src="http://c.ibangkf.com/i/c-tianyuantest.js"></script>
+<div style="display:none;">
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Faec411cb4885624a34c7f9b3fa55c0a2' type='text/javascript'%3E%3C/script%3E"));
+</script>
+    </div>
+    
+</body>
+</html>

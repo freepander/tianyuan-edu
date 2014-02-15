@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>海博英语</title>
+	<link rel="stylesheet" type="text/css" href="css/skrollr.css" />
+	<script type="text/javascript" src="js/skrollr.min.js"></script>
+	<style type="text/css">
+	body{background-color: #E2E0D4; width: 100%;}
+	*{margin:0;padding: 0; border: none;}
+	#loading{position: absolute; top: 0; left: 0; width: 100%; height: 100%;  z-index: 800; background:#fff;}
+	#loading img{width: 85px; height: 85px; margin: auto; display: block; margin-top: 300px; }
+	#logo{position: absolute; top: 0; left: 0; display: block; width: 200px; height: 67px; background-image: url('img/haiboyingyu/logo.png'); z-index: 501;}
+	#tianyuan{position: relative; top: 0; display: block; margin-left: auto; margin-right: auto; width: 100px; height: 50px; background-image: url('img/logo.png'); z-index: 501;}
+	#left{position: fixed; top: 0; left: 0; width: 50%; display: block; height: 100%; background-color: #8FC41F;}
+	#right{position: fixed; top: 0; right: 0; width: 50%; display: block; height: 100%; background-color: #F39800;}
+	#yuyue{position: fixed; top: 0; right: 50px; width: 70px; height: 55px; background-image: url('img/haiboyingyu/yuyue1.png'); z-index: 501;  display: block;}
+	#content{position: fixed; display: block; top: 120px; left: 0; height: 470px; width: 100%; background-color: #8FC41F; overflow: hidden; }
+	#content-left{position: absolute; display: block; top: 0; left: 0; width: 50%; height: 100%; background-color: #F39800; overflow: hidden;}
+	#content-right{position: absolute; display: block; top: 0; right: 0; width: 50%; height: 100%; background-color: #8FC41F; overflow: hidden; }
+	#back{position: fixed; bottom: 0; right: 0; width: 100px; height: 70px; background-image: url('../img/back_4.png'); z-index: 800;}
+	</style>
+</head>
+<body>
+	<div id="loading">
+      <img src="img/loading4.gif" />
+    </div>
+    <a id="back" href="javascript:history.go(-1);"> </a>
+    <div id="left">
+	</div>
+	<div id="right">
+	</div>
+	<a id="logo" href="#"> </a>
+	<a id="tianyuan" href="../"> </a>
+	<a id="yuyue" href="javascript:void(0);" onclick="ib_wopen();"> </a>
+	<div id="content">
+		<div id="content-left">
+			<img id="pic1" src="img/haiboyingyu/pic1.png"
+				data-1="display:block; top: 120px; left: 0px; width: 50%; height:470px; "
+				data-750="left:-1000px;"
+				data-751="display:none;">
+			<img id="text2" src="img/haiboyingyu/text2.png"
+				data-749="display:none;"
+				data-750="display:block; left:-1000px; top:140px; "
+				data-1500="left:50px;">	
+			<img id="pic3" src="img/haiboyingyu/pic3.png"
+				data-1500="display:none;"
+				data-1501="display:block; left:-1000px; top:120px; width:50%; height:470px;"
+				data-3000="left:0px;">
+		</div>
+		<div id="content-right">
+			<img id="text1" src="img/haiboyingyu/text1.png"
+				data-1="display:block; top:150px; right:100px; width:450px; height:400px; "
+				data-1500="display:none;">
+			<img id="pic2" src="img/haiboyingyu/pic2.png"
+				data-749="display:none;"
+				data-750="display:block; right:-1000px; top:120px; width:50%; height:470px;"
+				data-1500="right:0px;"
+				data-3000="right:-1000px;">
+			<img id="text3" src="img/haiboyingyu/text3.png"
+				data-2249="display:none;"
+				data-2250="display:block; right:-1000px; top:150px;"
+				data-3000="right:100px;">
+		</div>
+	</div> 
+	<img id="heng" src="img/haiboyingyu/touming2.png"
+		data-1="top: 50px; right: 50%; width:50%; z-index: 500;"
+		data-1500="right: 0%;"
+		data-3000="right:50%; top:500px;">
+	<img id="shu" src="img/haiboyingyu/touming1.png"
+		data-1="top: 0px; right: 92%; height:100%; width: 170px; z-index:500;"
+		data-1500="right:0%"
+		data-3000="right:92%;">	
+    <script src="js/jquery.js"></script>
+	<script type="text/javascript">
+	$(window).load(function(){
+		skrollr.init();
+		$('#loading').hide(400);
+	});
+	//去除链接虚框
+    $('a').bind('focus',function(){if(this.blur){ this.blur();}});
+	</script>
+	<a id="ibangkf" href="http://www.ibangkf.com">网站客服</a>
+<script type="text/javascript" src="http://c.ibangkf.com/i/c-tianyuantest.js"></script>
+<div style="display:none;">
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Faec411cb4885624a34c7f9b3fa55c0a2' type='text/javascript'%3E%3C/script%3E"));
+</script>
+    </div>
+    
+</body>
+</html>

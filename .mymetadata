@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="tianyuan"
+  id="myeclipse.1380778820935"
+  context-root="/tianyuan"
+  j2ee-spec="5.0"
+  archive="tianyuan.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

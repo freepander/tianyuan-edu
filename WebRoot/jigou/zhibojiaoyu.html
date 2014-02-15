@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>智柏教育</title>
+	<link rel="stylesheet" type="text/css" href="css/skrollr.css" />
+	<script type="text/javascript" src="js/skrollr.min.js"></script>
+	<style type="text/css">
+	body{background-color: #fff;}
+	*{margin:0;padding: 0;}
+	#loading{position: absolute; top: 0; left: 0; width: 100%; height: 100%;  z-index: 800; background:#fff;}
+	#loading img{width: 85px; height: 85px; margin: auto; display: block; margin-top: 300px; }
+	#logo {width:125px; height:125px; position: absolute; left: 10px; top: 10px; background-image: url('img/zhibojiaoyu/logo.png'); z-index: 500;}
+	#tianyuan{position: relative;display: block;margin-left: auto;margin-right: auto; width: 100px;height: 50px; top:0; background-image: url('img/logo.png'); z-index: 500;}
+	#back{position: fixed; bottom: 0; right: 0; width: 100px; height: 70px; background-image: url('../img/back_4.png'); z-index: 800;}
+	</style>
+</head>
+<body>
+	<div id="loading">
+      <img src="img/loading4.gif" />
+    </div>
+    <a id="back" href="javascript:history.go(-1);"> </a>
+	<a id="logo" href="#"></a>
+	<a id="tianyuan" href="../"></a>
+	<img src="img/zhibojiaoyu/bg1.png" style="width: 100%;"
+		data-1="top:0px; left:0px;">
+	<img src="img/zhibojiaoyu/text1.png"
+		data-1="top:36px; left:410px;">
+	<img src="img/zhibojiaoyu/people1.png"
+		data-2="right:0px; top:201px;">
+	<a href="javascript:void(0);" onclick="ib_wopen();"
+		data-1="width:54px; height:32px; left:984px; top:494px; background-image:url('img/zhibojiaoyu/yuyue1.png')"></a>
+	<img src="img/zhibojiaoyu/bg2.png" style="width: 100%;"
+		data-1="top:1000px; right:0px;"
+		data-1000="top:0px;">
+	<img src="img/zhibojiaoyu/text2.png"
+		data-1="top:1000px; right:40px; "
+		data-1000="top:130px;"
+		data-1500=""
+		data-2500="top:-1000px;" >
+	<img src="img/zhibojiaoyu/text3.png"
+		data-1499="display:none;"
+		data-1500="display:block; top:1000px; right:40px;"
+		data-2500="top:130px;">
+	<a href="javascript:void(0);" onclick="ib_wopen();"
+		data-999="display:none;"
+		data-1000="display:block; left:344px; top:78px; width:58px; height:44px; background-image:url('img/zhibojiaoyu/yuyue2.png')"></a>
+    <script src="js/jquery.js"></script>
+	<script type="text/javascript">
+	$(window).load(function(){
+		skrollr.init();
+		$('#loading').hide(400);
+	});
+	//去除链接虚框
+    $('a').bind('focus',function(){if(this.blur){ this.blur();}});
+	</script>
+	<a id="ibangkf" href="http://www.ibangkf.com">网站客服</a>
+<script type="text/javascript" src="http://c.ibangkf.com/i/c-tianyuantest.js"></script>
+<div style="display:none;">
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Faec411cb4885624a34c7f9b3fa55c0a2' type='text/javascript'%3E%3C/script%3E"));
+</script>
+    </div>
+    
+</body>
+</html>

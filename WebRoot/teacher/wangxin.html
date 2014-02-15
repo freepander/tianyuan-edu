@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>王鑫</title>
+	<link rel="stylesheet" type="text/css" href="css/skrollr.css" />
+	<script type="text/javascript" src="js/skrollr.min.js"></script>
+	<style type="text/css">
+	body{background-color: #84714e; }
+	*{margin:0;padding: 0;}
+	#loading{position: absolute; top: 0; left: 0; width: 100%; height: 100%;  z-index: 800; background:#fff;}
+	#loading img{width: 85px; height: 85px; margin: auto; display: block; margin-top: 300px; }
+	h1{color: #fff; font-size: 36px; margin-bottom: 30px;}
+	h3{color: #fff; font-size: 24px; line-height: 30px;}
+	p{color: #fff; font-size: 20px; margin-bottom: 24px;}
+    .small{font-size: 16px;}
+	.yuyue{color: #2B6AB4; display: block; width: 84px; height: 60px; background-color: #FFF; z-index: 1000; line-height: 60px; font-size: 24px; text-decoration: none; position: fixed; left: 500px; top: 0px; text-align: center;}
+	#back{position: fixed; bottom: 0; right: 0; width: 100px; height: 70px; background-image: url('img/back_4.png'); z-index:1000;}
+	#tianyuan{display: block; width: 100px; height: 50px; margin-left: auto; margin-right: auto; background: url('img/logo.png'); z-index: 800;}
+	#left{background: url(img/qiehuan_left.png) center no-repeat; display: block; position:fixed; z-index: 10000; top: 0;left: 0px;width: 40px; height: 100%;}
+	#right{background: url(img/qiehuan_right.png) center no-repeat; display: block; position:fixed; z-index: 10000; top: 0;right: 0px;width: 40px; height: 100%; }
+	</style>
+</head>
+<body>
+	<div id="loading">
+      <img src="img/loading4.gif" />
+    </div>
+    <a class="yuyue" href="javascript:void(0);" onclick="ib_wopen();">预约</a>
+    <img src="img/wangxin/people1.png" 
+    	data-1="left: 0px;"
+    	data-1000="left: -1366px;"/>
+    <img data-1="left: 0px;" src="img/wangxin/bg1.png"
+    	data-1000="left: -1366px;" />
+    <div data-1="left: 940px; top: 200px; width:410px;"
+    	data-1000="left: -426px;">
+    	<h1>王 鑫</h1>
+    	<h3>学历：</h3>
+    	<p>兰卡斯特大学英语语言学硕士</p>
+    	<h3>教学专长：</h3>
+    	<p>雅思阅读、听力、<br>托福阅读<br>SAT语法改错</p>
+    	<h3>教学经验：</h3>
+    	<p>曾任派特森英语雅思、托福、Sat教师<br>英语专业八级，雅思8.0分，托业考试810分，商务英语高级</p>
+    </div>
+    <img src="img/wangxin/people2.png"
+    	data-1="left: -1366px;"
+    	data-1000="left: 500px;"
+    	data-1500="" />
+    <img src="img/wangxin/bg2.png" 
+    	data-1="top: 0px; left: 1366px; "
+    	data-1000="left: 0px;"
+    	data-1500=""/>
+    <div data-1="left: 1406px; width: 412px; top: 84px;"
+    	data-1000="left: 40px;"
+    	data-1500="" >
+    	<h3>教学风格：</h3>
+    	<p>能够将英语学习与实际生活联系起来，让学员在轻松，快乐的氛围中掌握英语知识。在教学过程中思路清晰明了，言简意赅并且在工作中认真负责，深受学生的喜爱。</p>
+    	<h3>学习建议：</h3>
+    	<p>基本功是取得好成绩的必要保障,从根本上改变原本接受应试英语的抵触感,寓教于乐，学以致用，最终达到甚至超出预期目标。</p>
+    	<h3>从业感言：</h3>
+    	<p>用“勤”来鞭策自己，用“钻”来提高业务，用“心”来体验学生。</p>
+    	
+    </div>
+    <img src="img/wangxin/people3.png" 
+    	data-1499="display: none;"
+    	data-1500="display: block; left: -1366px; "
+    	data-2500="left: 0px;"/>
+    <img src="img/wangxin/bg3.png"
+    	data-1499="display: none;"
+    	data-1500="display: block;  left: -1366px;"
+    	data-2500="left: 0px;" />
+    <div
+    	data-1499="display: none; width: 370px;"
+    	data-1500="display: block; left: -446px; top: 180px;"
+    	data-2500="left: 920px;"
+    	>
+    	<h3>教学成果：</h3>
+    	<p>所辅导的学员雅思平均总成绩6.0的有20名左右，阅读单科最高分达8.0分的有9名左右；听力最高分达7.5分的有15名左右！</p>
+    	<h3>课时费：198元/小时</h3>
+    	<h3>空闲时间：</h3>
+    	<p>每周周一至周五晚上5点至8点；<br>周末上午10点至12点，下午2点到5点，晚至9点</p>
+    </div>
+    <div style="width: 100%; height: 50px; position: absolute; top: 0; left: 0; z-index: 1000;">
+    	<a id="tianyuan" href="../" ></a>
+    </div>
+    <a id="back" href="javascript:history.go(-1);"> </a>
+    <script src="js/jquery.js"></script>
+	<script type="text/javascript">
+	$(window).load(function(){
+		skrollr.init();
+		$('#loading').hide(400);
+	});
+	//去除链接虚框
+    $('a').bind('focus',function(){if(this.blur){ this.blur();}});
+    $("#left").click(function(){
+    	var a=$(document).scrollTop()
+    	if(a==0){
+    		return ;
+    	}else if(a<=1000){
+    		$(document).scrollTop(0);
+    		return;
+    	}else if(a<=2500){
+    		$(document).scrollTop(1000);
+    		return;
+    	}
+    });
+    $("#right").click(function(){
+    	var a=$(document).scrollTop()
+    	if(a>=0&&a<1000){
+    		$(document).scrollTop(1000);
+    	}else if(a>=1000&&a<2500){
+    		$(document).scrollTop(2500);
+    	}else if(a==2500){
+    		return;
+    	}
+    });
+    
+    
+	</script>
+	<a id="ibangkf" href="http://www.ibangkf.com">网站客服</a>
+    <script type="text/javascript" src="http://c.ibangkf.com/i/c-tianyuantest.js"></script>
+    <div style="display:none;">
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Faec411cb4885624a34c7f9b3fa55c0a2' type='text/javascript'%3E%3C/script%3E"));
+</script>
+    </div>
+    
+</body>
+</html>

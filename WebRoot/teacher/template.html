@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>机构名称</title>
+	<link rel="stylesheet" type="text/css" href="css/skrollr.css" />
+	<script type="text/javascript" src="js/skrollr.min.js"></script>
+	<style type="text/css">
+	/*  base css  */
+	body{background-color: #E2E0D4;}
+	*{margin:0;padding: 0;}
+	#loading{position: absolute; top: 0; left: 0; width: 100%; height: 100%;  z-index: 800; background:#fff;}
+	#loading img{width: 85px; height: 85px; margin: auto; display: block; margin-top: 300px; }
+	#back{position: fixed; bottom: 0; right: 0; width: 100px; height: 70px; background-image: url('img/back_4.png'); z-index: 800;}
+
+
+
+	</style>
+</head>
+<body>
+	<div id="loading">
+      <img src="img/loading4.gif" />
+    </div>
+    <a id="back" href="javascript:history.go(-1);"> </a>
+	<a href="#" id="logo"> </a>
+	<!--<a id="yuyue1" href="javascript:void(0);" onclick="ib_wopen();"> </a>-->
+
+
+
+
+
+
+
+
+
+
+    <script src="js/jquery.js"></script>
+	<script type="text/javascript">
+	$(window).load(function(){
+		skrollr.init();
+		$('#loading').hide(400);
+	});
+    $('a').bind('focus',function(){if(this.blur){ this.blur();}});
+	</script>
+	<a id="ibangkf" href="http://www.ibangkf.com">网站客服</a>
+	<script type="text/javascript" src="http://c.ibangkf.com/i/c-tianyuantest.js"></script>
+	<div style="display:none;">
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Faec411cb4885624a34c7f9b3fa55c0a2' type='text/javascript'%3E%3C/script%3E"));
+</script>
+    </div>
+    
+</body>
+</html>

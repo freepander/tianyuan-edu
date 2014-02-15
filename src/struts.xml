@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+	
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	
+    <package name="login" namespace="/login" extends="struts-default">
+    	<global-results>
+			<result name="login">/back/login.jsp</result>
+		</global-results>
+    	<action name="login" class="userAction" method="login">
+    		<result name="success">/back/main.jsp</result>
+    		<result name="error">/back/login.jsp</result>
+    	</action>
+    </package>
+	<package name="back" namespace="/back" extends="struts-default">
+		<interceptors>
+			<interceptor name="authority" class="com.myivcre.tianyuan.interceptor.AuthorityInterceptor"/>
+			<interceptor-stack name="login">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="authority"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<global-results>
+			<result name="login">/back/login.jsp</result>
+		</global-results>
+		<action name="*_*" class="{1}Action" method="{2}">
+			<result name="list" type="chain">{1}_list</result>
+			<result name="success">/back/{1}_{2}.jsp</result>
+			<interceptor-ref name="login"></interceptor-ref>
+			
+		</action>
+		
+	</package>
+	<package name="file" namespace="/file" extends="struts-default">
+		<action name="*_*" class="{1}Action" method="{2}">
+			
+		</action>
+	</package>
+	<package name="index" namespace="/" extends="struts-default">
+		<action name="*_*" class="{1}Action" method="{2}">
+			<result name="success">/{2}.jsp</result>
+			<result name="index">/index.jsp</result>
+			<result name="studentMessage">/studentMessage.jsp</result>
+			<result name="teacherMessage">/teacherMessage.jsp</result>
+			<result name="gerenxinxiStudent">/gerenxinxiStudent.jsp</result>
+			<result name="gerenxinxiTeacher">/gerenxinxiTeacher.jsp</result>
+			<result name="gerenxinxiOrganization">/gerenxinxiOrganization.jsp</result>
+			<!-- 搜索结果   -->
+			<result name="studentUserList">/studentUserList.jsp</result>
+			<result name="organizationList">/organizationList.jsp</result>
+			<result name="teacherList">/teacherList.jsp</result>
+			<result name="bookList">/bookList.jsp</result>
+			<!-- 找回密码 -->
+			<result name="studentChangePassword2">/studentChangePassword2.jsp</result>
+			<result name="studentChangePassword">/studentChangePassword.jsp</result>
+			<result name="backindex">index.jsp</result>
+			<result name="teacherChangePassword">/teacherChangePassword.jsp</result>
+			<result name="teacherChangePassword2">/teacherChangePassword2.jsp</result>
+			<!--  主页   -->
+			<result name="newsList">/newsList.jsp</result>
+			<!--  个人首页  -->
+			<result name="gerenstudent">/gerenstudent.jsp</result>
+			<result name="gerenteacher">/gerenteacher.jsp</result>
+		</action>
+	</package>
+	
+	
+</struts>
+	

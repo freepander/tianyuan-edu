@@ -54,21 +54,10 @@ public class ActivitiesAction extends BaseAction {
 	}
 	public String delete(){
 		this.activities=(Activities)this.baseService.get(Activities.class, id);
+		this.baseService.delete(this.activities);
 		return "list";
 	}
-	public String indexList(){
-		try {
-			this.pageModel=this.baseService.getPageModel("activities", pageNum, 6, orderby, q,a);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		this.pageModel.setUrl("back/activities_list?pageNum");
-		return "indexList";
-	}
-	public String indexGet(){
-		this.activities=(Activities)this.baseService.get(Activities.class, id);
-		return null;
-	}
+	
 	public String getDate() {
 		return date;
 	}

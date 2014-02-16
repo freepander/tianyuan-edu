@@ -31,45 +31,61 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</s:if>
 	<div style="width:500px; height:540px; margin-left:-68px; color:#FFF;">
 		<img src="upload/teacherlogo/<s:property value="teacherUser.logo"/>" style="position:absolute; left:-110px; top:135px;width:100px; height:100px;">
-		<div style="width:400px; height:530px;overflow:auto;"  id="fun_gerenxinxis_div">
-		
-		<h2 style="margin-bottom:20px;">个人信息<br><small>Personal information</small></h2>
-		<p style="margin-bottom:8px;font-size:16px;">姓名：<s:property value="teacherUser.name"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">性别：<s:property value="teacherUser.sex"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">讲授科目：<s:property value="teacherUser.lesson"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">课时费用：<s:property value="teacherUser.money"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">时间安排：<s:property value="teacherUser.time"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">学校：<s:property value="teacherUser.political"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">学历：<s:property value="teacherUser.post"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">专业：<s:property value="teacherUser.post2"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">邮箱：<s:property value="teacherUser.email"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">居住地：<s:property value="teacherUser.home"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">家庭住址：<s:property value="teacherUser.address"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">邮编：<s:property value="teacherUser.zipcode"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">QQ：<s:property value="teacherUser.qq"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">工作经历：<s:property value="teacherUser.experience"/></p>
-		<p style="margin-bottom:8px;font-size:16px;">备注：<s:property value="teacherUser.recommend"/></p>
-		<div class="service_rating">
-		<p style="float:left;">评分：</p>
-			<div style=" width:330px; float:right;">
-				<div id="socure">
+		<div style="width:420px; height:530px;overflow:auto;"  id="fun_gerenxinxis_div">
+			<h2 style="margin-bottom:20px;">个人信息<br><small>Personal information</small></h2>
+			<p style="margin-bottom:8px;font-size:16px;">姓名：<s:property value="teacherUser.name"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">性别：<s:property value="teacherUser.sex"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">讲授科目：<s:property value="teacherUser.lesson"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">课时费用：<s:property value="teacherUser.money"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">时间安排：<s:property value="teacherUser.time"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">学校：<s:property value="teacherUser.political"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">学历：<s:property value="teacherUser.post"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">专业：<s:property value="teacherUser.post2"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">邮箱：<s:property value="teacherUser.email"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">居住地：<s:property value="teacherUser.home"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">家庭住址：<s:property value="teacherUser.address"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">邮编：<s:property value="teacherUser.zipcode"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">QQ：<s:property value="teacherUser.qq"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">工作经历：<s:property value="teacherUser.experience"/></p>
+			<p style="margin-bottom:8px;font-size:16px;">备注：<s:property value="teacherUser.recommend"/></p>
+			<div class="service_rating">
+				<p style="float:left;">评分：</p>
+				<div style=" width:330px; float:right;">
+					<div id="socure" data-id="<s:property value="teacherUser.id"/>">
+					</div>
 				</div>
 			</div>
-		</div>
+			<div id="fun_review" style="margin-top:40px;">
+			
+			<script>
+			$(document).ready(function(){
+				$('#fun_review').load('shouye_getReviews',{id:<s:property value="teacherUser.id"/>},function(){
+					$("#fun_gerenxinxis_div").mCustomScrollbar({
+						scrollButtons:{
+							enable:true
+						}
+					});
+				});
+			});
+			</script>
+			</div>
 		</div>
 	</div>
 	<a href="javascript:ib_wopen();" style="border:0;background:#A628E1;color:#FFF;margin-right:10px; font-size:20px;padding-left:10px; padding-right:10px; padding-top:4px; padding-bottom:4px; border-radius:10px;cursor:pointer; top:-348px; left:-84px; position:relative;">预约</a>
 </div>
 <script type="text/javascript">
-$('#socure').raty({score: 3,number:10,width:260});
+$('#socure').raty({score: <s:property value="teacherUser.soucre"/>,number:10,width:260,click: function(score, evt) {
+    console.log('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
+    console.log($(this).attr('data-id'));
+    var id=$(this).attr('data-id');
+    $.post("shouye_addSource",{id:id,source:score},function(data){
+    	alert(data);
+    });
+}});
 </script>
 <script>
 
-$("#fun_gerenxinxis_div").mCustomScrollbar({
-	scrollButtons:{
-		enable:true
-	}
-});
+
 $('#sub-circle1').click(function() {
     $('#content').hide().load('index_zhuye').show(400);
     location.hash="zhuye";

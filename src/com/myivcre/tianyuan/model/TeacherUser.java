@@ -6,6 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+/**
+ * 教师用户
+ * @author freepander
+ *
+ */
 @Entity(name="teacheruser")
 public class TeacherUser {
 	@Id@GeneratedValue
@@ -63,6 +68,22 @@ public class TeacherUser {
 	private String huiyuannumber;
 	//性别
 	private String sex;
+	//评分
+	private double soucre;
+	//评分人数
+	private int soucreNumber;
+	public double getSoucre() {
+		return soucre;
+	}
+	public void setSoucre(double soucre) {
+		this.soucre = soucre;
+	}
+	public int getSoucreNumber() {
+		return soucreNumber;
+	}
+	public void setSoucreNumber(int soucreNumber) {
+		this.soucreNumber = soucreNumber;
+	}
 	public long getId() {
 		return id;
 	}

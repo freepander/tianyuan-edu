@@ -3,7 +3,11 @@ package com.myivcre.tianyuan.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+/**
+ * 首页信息类别
+ * @author freepander
+ *
+ */
 @Entity(name="newscategory")
 public class NewsCategory {
 	@Id@GeneratedValue

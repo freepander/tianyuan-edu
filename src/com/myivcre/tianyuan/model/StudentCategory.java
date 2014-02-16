@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * 学生类别
+ * @author freepander
+ *
+ */
 @Entity(name="studentcategory")
 public class StudentCategory {
 	@Id@GeneratedValue

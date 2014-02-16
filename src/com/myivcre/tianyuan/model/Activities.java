@@ -5,6 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 
+/**
+ * 活动
+ * @author freepander
+ *
+ */
 @Entity(name="activities")
 public class Activities {
 	@Id@GeneratedValue

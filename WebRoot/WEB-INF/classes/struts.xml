@@ -65,6 +65,8 @@
 			<!--  个人首页  -->
 			<result name="gerenstudent">/gerenstudent.jsp</result>
 			<result name="gerenteacher">/gerenteacher.jsp</result>
+			<!-- 评论 -->
+			<result name="reviewsList">/reviewList.jsp</result>
 		</action>
 	</package>
 	

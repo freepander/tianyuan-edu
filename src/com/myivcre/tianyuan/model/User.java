@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * 管理员
+ * @author freepander
+ *
+ */
 @Entity(name="user")
 public class User {
 	@Id@GeneratedValue

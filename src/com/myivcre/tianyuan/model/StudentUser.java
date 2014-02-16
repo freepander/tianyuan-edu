@@ -7,6 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+/**
+ * 学生用户
+ * @author freepander
+ *
+ */
 @Entity(name="studentuser")
 public class StudentUser {
 	@Id@GeneratedValue

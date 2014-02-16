@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * 首页广告
+ * @author freepander
+ *
+ */
 @Entity(name="ad")
 public class Ad {
 	@Id@GeneratedValue

@@ -5,6 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+/**
+ * 老师
+ * @author freepander
+ *
+ */
 @Entity(name="teacher")
 public class Teacher {
 	@Id@GeneratedValue

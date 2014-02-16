@@ -55,7 +55,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             },{
             	text:'留言管理',
                 items:[
-                	{id:'message_list',text:'留言列表',href:'back/message_list'}
+                	{id:'message_list',text:'留言列表',href:'back/message_list'},
+                	{id:'review_list',text:'教师评论列表',href:'back/review_list'}
                   ]
             },{
             	text:'图书管理',

@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/*
+ * 图书类别
+ */
 @Entity(name="bookcategory")
 public class BookCategory {
 	@Id@GeneratedValue

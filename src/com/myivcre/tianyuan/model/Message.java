@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * 留言
+ * @author freepander
+ *
+ */
 @Entity(name="message")
 public class Message {
 	@Id

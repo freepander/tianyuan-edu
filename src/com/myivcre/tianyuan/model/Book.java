@@ -5,7 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-
+/**
+ * 图书
+ * @author freepander
+ *
+ */
 @Entity(name="book")
 public class Book {
 	@Id@GeneratedValue

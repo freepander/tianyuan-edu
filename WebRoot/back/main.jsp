@@ -68,6 +68,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 items:[
                 	{id:'ad_list',text:'编辑',href:'back/ad_list'},
                   ]
+            },{
+            	text:'活动管理',
+                items:[
+                	{id:'activities_list',text:'活动列表',href:'back/activities_list'},
+                	{id:'activities_input',text:'添加活动',href:'back/activities_input'}
+                  ]
             }]
           },{
               id:'用户管理',

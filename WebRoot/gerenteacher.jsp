@@ -51,10 +51,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<p style="margin-bottom:8px;font-size:16px;">备注：<s:property value="teacherUser.recommend"/></p>
 		<div class="service_rating">
 		<p style="float:left;">评分：</p>
-			<div class="rating" id="socure">
-				<!-- <div class="value">
-					<span class="value-title" title="4.6"></span>
-				</div> -->
+			<div style=" width:330px; float:right;">
+				<div id="socure">
+				</div>
 			</div>
 		</div>
 		</div>
@@ -62,9 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<a href="javascript:ib_wopen();" style="border:0;background:#A628E1;color:#FFF;margin-right:10px; font-size:20px;padding-left:10px; padding-right:10px; padding-top:4px; padding-bottom:4px; border-radius:10px;cursor:pointer; top:-348px; left:-84px; position:relative;">预约</a>
 </div>
 <script type="text/javascript">
-$('.rating').jRating({
-	isDisabled : true
-});
+$('#socure').raty({score: 3,number:10,width:260});
 </script>
 <script>
 

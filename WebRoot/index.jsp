@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="教育|英语|文化课|教育机构|哈尔滨|平台|家教|名师|咨询|书城|教育新闻">
     <meta name="description" content="哈尔滨天源教育咨询平台，找家教、赵老师、招学生、找培训就上天源教育平台。">
+    
     <link href="css/style.css" rel="stylesheet" media="screen">
     <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/jRating.jquery.css" type="text/css"></link>
@@ -165,7 +166,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<script type="text/javascript" src="js/jquery.fxTab.js"></script>
   	<script type="text/javascript" src="js/jquery.cookie.js"></script>
   	<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-  	<script type="text/javascript" src="js/jRating.jquery.min.js"></script>
+  	<script type="text/javascript" src="js/jquery.raty.min.js"></script>
+  	
   	<script type="text/javascript">
   	$("#organizationLogin").click(function(){
   		var username=$("#organizationLoginForm input[name='username']").val();

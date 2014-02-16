@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
+import com.myivcre.tianyuan.model.Activities;
 import com.myivcre.tianyuan.model.Ad;
 import com.myivcre.tianyuan.model.BookCategory;
 import com.myivcre.tianyuan.model.Message;
@@ -54,6 +55,8 @@ public class IndexAction extends BaseAction {
 	private List<BookCategory> bookCateogryList;
 	//book
 	private long categoryId;
+	//zhao you hui
+	private Activities activicies;
 	public String zhuye(){
 		this.newsCategoryList=this.baseService.getByHal("from newscategory");
 		this.ad=(Ad)this.baseService.get(Ad.class, 1);
@@ -104,7 +107,6 @@ public class IndexAction extends BaseAction {
 	public String getNewspicById(){
 		NewsPicture news=(NewsPicture) this.baseService.get(NewsPicture.class, id);
 		String json=JSON.toJSONString(news, true);
-		System.out.println(json);
 		try {
 			json=new String(json.getBytes("utf-8"),"utf-8");
 		} catch (UnsupportedEncodingException e1) {
@@ -242,6 +244,34 @@ public class IndexAction extends BaseAction {
 	public String zhaoyouhui(){
 		
 		return "success";
+	}
+	public String artivitiesList(){
+		try {
+			this.pageModel=this.baseService.getPageModel("activities", pageNum, 6, orderby, q,a);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		this.pageModel.setUrl("index_zhaoyouhui?pageNum=");
+		return "success";
+	}
+	public String getArtivitiesById(){
+		this.activicies=(Activities)this.baseService.get(Activities.class, id);
+		String json=JSON.toJSONString(this.activicies, true);
+		try {
+			json=new String(json.getBytes("utf-8"),"utf-8");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		HttpServletResponse response=ServletActionContext.getResponse();
+		try {
+			response.setCharacterEncoding("utf-8");
+			OutputStream out=response.getOutputStream();
+			out.write(json.getBytes("utf-8"));
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	public String huodongzhaopian(){
 		this.bookCateogryList=this.baseService.getByHal("from bookcategory");

@@ -39,7 +39,28 @@ public class FileAction extends ActionSupport {
 		}
 		return null;
 	}
-
+	public String artivitiespic() {
+		PrintWriter out = null;
+		try {
+			String filePath = ServletActionContext.getRequest().getRealPath(
+					"/upload/artivitiespic");
+			out = ServletActionContext.getResponse().getWriter();
+			File path = new File(filePath);
+			if (!path.exists()) {
+				path.mkdirs();
+			}
+			FileUtils.copyFile(uploadify, new File(filePath + "/"
+					+ uploadifyFileName));
+			out.print("success");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (out != null) {
+				out.close();
+			}
+		}
+		return null;
+	}
 	public String newspic() {
 		PrintWriter out = null;
 		try {

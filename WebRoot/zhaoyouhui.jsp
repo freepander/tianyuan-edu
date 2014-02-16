@@ -52,6 +52,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a id="sub-circle7" href="javascript:void(0);"> </a>
     </div>
     <div id="sub-content">
+    <div style=" width:852px; height:491px; margin-left:-110px; padding-top:114px;position:relative;">
+    	<div id="fun_activitiesList" style="color:#FFF; width:852px; height:490px;position:absolute;">*
+    	<script>
+    	$(document).ready(function(){
+    		$('#fun_activitiesList').load("index_artivitiesList")
+    	})
+    	</script>
+    	<div class="clear:both;"></div>
+    	</div>
+    </div>
+    </div>
+    <div id="xinwen-bg">
+      <div id="xinwen">
+        <a id="xinwen-close" href="javascript:void(0);"></a>
+        <div id="xinwen-content">
+        <!-- 新闻内容 -->
+        </div>
+        <div id="xinwen-qiehuan" style="display:none">
+          <a id="right" href="javascript:void(0);">下一条</a>
+          <a id="left" href="javascript:void(0);">上一条</a>
+        </div>
+      </div>
     </div>
   	<script type="text/javascript">
   	var freepander_width=$(window).width();

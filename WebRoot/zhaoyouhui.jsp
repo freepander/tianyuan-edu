@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <div id="sub-content">
     <div style=" width:852px; height:491px; margin-left:-110px; padding-top:114px;position:relative;">
-    	<div id="fun_activitiesList" style="color:#FFF; width:852px; height:490px;position:absolute;">*
+    	<div id="fun_activitiesList" style="color:#FFF; width:852px; height:490px;position:absolute;">
     	<script>
     	$(document).ready(function(){
     		$('#fun_activitiesList').load("index_artivitiesList")

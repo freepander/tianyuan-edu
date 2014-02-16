@@ -18,25 +18,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="pagination pull-right" style="float:right; width:100%;">
         <ul style=" text-align:right; list-style:none; display:inline-block; float:right;">
 	    	<s:if test="pageNum==1">
-		    	
 		    </s:if>
 		    <s:else>
-		    	<li id="fun-new-shangyiye" style="width:80px;"><a style="color:#FFF;" href="<s:property value="pageModel.url" /><s:property value="pageNum-1" />">上一页</a></li>
+		    	<li id="fun-new-shangyiye" style="line-height:30px;background:url(img/acti_prev.png);width:85px; height:30px;display:block;"><a style="color:#FFF;" href="<s:property value="pageModel.url" /><s:property value="pageNum-1" />">上一页</a></li>
 		    </s:else>
 		    <s:iterator value="pageModel.pageNumList" status="st" >
 		    	<s:if test="pageNum==#st.index+1">
-		    	<li style="color:#FFF; border-bottom:1px solid #FFF;"> <s:property /></li>
+		    	<li style="line-height:30px;width:30px;height:30px;display:block;color:#FFF;background:url(img/acti_select.png);"> <s:property /></li>
 		    	</s:if>
 		    	<s:else>
-		    	<li><a style="color:#FFF;" class="fun-new-ye" href="<s:property value="pageModel.url" /><s:property />"> <s:property /> </a></li>
+		    	<li style="line-height:30px;width:30px;height:30px;display:blcok;background:url(img/acti_normal.png);"><a style="color:#FFF;" class="fun-new-ye" href="<s:property value="pageModel.url" /><s:property />"> <s:property /> </a></li>
 		    	</s:else>
-		    	
 		    </s:iterator>
 		    <s:if test="pageNum==pageModel.countPage" >
-		    	
 		    </s:if>
 		    <s:else>
-		    	<li id="fun-new-xiayiye" style="width:80px;"><a style="color:#FFF;" href="<s:property value="pageModel.url" /><s:property value="pageNum+1" /> ">下一页</a></li>
+		    	<li id="fun-new-xiayiye" style="line-height:30px;width:85px; height:30px;display:blcok;background:url(img/acti_next.png);"><a style="color:#FFF;" href="<s:property value="pageModel.url" /><s:property value="pageNum+1" /> ">下一页</a></li>
 		    </s:else>
 	    </ul>
       </div>

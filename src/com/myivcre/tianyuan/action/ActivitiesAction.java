@@ -21,7 +21,7 @@ public class ActivitiesAction extends BaseAction {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		this.pageModel.setUrl("back/activities_list?pageNum");
+		this.pageModel.setUrl("back/activities_list?pageNum=");
 		return "success";
 	}
 	public String input(){

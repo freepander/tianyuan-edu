@@ -39,5 +39,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </s:iterator>
       </tbody>
     </table>
+    
+    <div>
+      <div class="pagination pull-right">
+        <ul>
+	    	<s:if test="pageNum==1">
+	    		<li class="disabled"><a >首页</a></li>
+		    	<li class="disabled"><a >上一页</a></li>
+		    </s:if>
+		    <s:else>
+		    	<li><a href="<s:property value="pageModel.url" />1">首页</a></li>
+		    	<li><a href="<s:property value="pageModel.url" /><s:property value="pageNum-1" />">上一页</a></li>
+		    </s:else>
+		    <s:iterator value="pageModel.pageNumList" >
+		    	<li><a href="<s:property value="pageModel.url" /><s:property />"> <s:property /> </a></li>
+		    </s:iterator>
+		    <s:if test="pageNum==pageModel.countPage" >
+		    	<li class="disabled"><a >下一页</a></li>
+		    	<li class="disabled"><a >尾页</a></li>
+		    </s:if>
+		    <s:else>
+		    	<li><a href="<s:property value="pageModel.url" /><s:property value="pageNum+1" /> ">下一页</a></li>
+		    	<li><a href="<s:property value="pageModel.url" /><s:property value="pageModel.countPage" /> ">尾页</a></li>
+		    </s:else>
+	    </ul>
+      </div>
+    </div>
 </body>
 </html>

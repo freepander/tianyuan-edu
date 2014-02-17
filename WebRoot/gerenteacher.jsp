@@ -51,8 +51,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="service_rating">
 				<p style="float:left;">评分：</p>
 				<div style=" width:330px; float:right;">
+				<span style="float:right;"><s:property value="teacherUser.soucre"/></span>
 					<div id="socure" data-id="<s:property value="teacherUser.id"/>">
 					</div>
+					
 				</div>
 			</div>
 			<div id="fun_review" style="margin-top:40px;">
@@ -74,9 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<a href="javascript:ib_wopen();" style="border:0;background:#A628E1;color:#FFF;margin-right:10px; font-size:20px;padding-left:10px; padding-right:10px; padding-top:4px; padding-bottom:4px; border-radius:10px;cursor:pointer; top:-348px; left:-84px; position:relative;">预约</a>
 </div>
 <script type="text/javascript">
-$('#socure').raty({score: <s:property value="teacherUser.soucre"/>,number:10,width:260,click: function(score, evt) {
-    console.log('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
-    console.log($(this).attr('data-id'));
+$('#socure').raty({score: <s:property value="teacherUser.soucre"/>,number:5,width:260,click: function(score, evt) {
     var id=$(this).attr('data-id');
     $.post("shouye_addSource",{id:id,source:score},function(data){
     	alert(data);

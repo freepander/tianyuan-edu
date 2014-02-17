@@ -1,6 +1,7 @@
 package com.myivcre.tianyuan.action;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 import com.myivcre.tianyuan.model.Organization;
 import com.myivcre.tianyuan.model.OrganizationIndustry;
 import com.myivcre.tianyuan.model.OrganizationRegional;
+import com.myivcre.tianyuan.model.Review;
 import com.myivcre.tianyuan.model.StudentCategory;
 import com.myivcre.tianyuan.model.StudentUser;
 import com.myivcre.tianyuan.model.TRU;
@@ -63,6 +65,7 @@ public class ShouYeAction extends BaseAction {
 	private String post2;
 	
 	private double source;
+	private String content;
 	/**
 	 * 学生登录
 	 * @return
@@ -238,6 +241,8 @@ public class ShouYeAction extends BaseAction {
 		this.teacherUser.setLogo("teacheruserheader.png");
 		this.teacherUser.setDianji(0);
 		this.teacherUser.setIshuiyuan(false);
+		this.teacherUser.setSoucre(4);
+		this.teacherUser.setSoucreNumber(1);
 		this.baseService.save(this.teacherUser);
 		this.list=this.baseService.getByHal("from teacheruser t where t.username = '"+username+"' and t.password = '"+password+"'");
 		this.teacherUser=(TeacherUser)this.list.get(0);
@@ -461,9 +466,13 @@ public class ShouYeAction extends BaseAction {
 	 * @return
 	 */
 	public String getReviews(){
-		this.list=this.baseService.getByHal("from review where teacher.id="+this.id);
+		this.list=this.baseService.getByHal("from review where teacher.id="+this.id+" order by id desc");
 		return "reviewsList";
 	}
+	/**
+	 * 对老师进行评分
+	 * @return
+	 */
 	public String addSource(){
 		
 		HttpServletRequest request=ServletActionContext.getRequest();
@@ -489,12 +498,12 @@ public class ShouYeAction extends BaseAction {
 						double sum=this.teacherUser.getSoucre()*this.teacherUser.getSoucreNumber();
 						this.teacherUser.setSoucreNumber(this.teacherUser.getSoucreNumber()+1);
 						Double d=new Double((sum+this.source)/this.teacherUser.getSoucreNumber());
-						this.teacherUser.setSoucre(d);
+						DecimalFormat df = new DecimalFormat("#.00");
+						this.teacherUser.setSoucre(Double.parseDouble(df.format(d)));
 						this.baseService.update(this.teacherUser);
 						try {
 							response.getOutputStream().write("评分成功，赶快写下想对老师说的话吧！".getBytes("utf-8"));
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						return null;
@@ -512,7 +521,6 @@ public class ShouYeAction extends BaseAction {
 					try {
 						response.getOutputStream().write("您不是学生，不可以对该老师进行评分。".getBytes("utf-8"));
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					return null;
@@ -523,12 +531,57 @@ public class ShouYeAction extends BaseAction {
 			
 			response.getOutputStream().write("请登录后在对该老师评分。".getBytes("utf-8"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
+	/**
+	 * 对教师进行评价
+	 * @return
+	 */
+	public String addReview(){
+			HttpServletRequest request=ServletActionContext.getRequest();
+			HttpServletResponse response=ServletActionContext.getResponse();
+			response.setCharacterEncoding("utf-8");
+			Cookie[] cookies=request.getCookies();
+			for(Cookie cookie:cookies){
+				if(cookie.getName().equals("userId")){
+					if(cookie.getValue().startsWith("student")){
+						//是学生
+						String ids=cookie.getValue().substring(7);
+						long id2=Long.parseLong(ids);
+						this.studentUser=(StudentUser)this.baseService.get(StudentUser.class, id2);
+						this.teacherUser=(TeacherUser)this.baseService.get(TeacherUser.class, id);
+						Review review =new Review();
+						review.setContent(this.content);
+						review.setDate(new Date());
+						review.setStudent(this.studentUser);
+						review.setTeacher(this.teacherUser);
+						this.baseService.save(review);
+						try {
+							response.getOutputStream().write("评论成功！".getBytes("utf-8"));
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+						return null;
+					}else {
+						//不是学生
+						try {
+							response.getOutputStream().write("您不是学生，不可以对该老师进行评价。".getBytes("utf-8"));
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+						return null;
+					}
+				}
+			}
+			try {
+				response.getOutputStream().write("请登录后在对该老师评分。".getBytes("utf-8"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return null;
+		}
 	
 	
 	
@@ -752,6 +805,12 @@ public class ShouYeAction extends BaseAction {
 	}
 	public void setSource(double source) {
 		this.source = source;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	

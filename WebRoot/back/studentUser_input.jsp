@@ -24,6 +24,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <div class="controls"><input class="input-normal control-text" type="text" name="sex" value="<s:property value="studentUser.sex"/>" ></div>
         </div>
         <div class="control-group">
+           <label class="control-label">用户名：</label>
+           <div class="controls"><input class="input-normal control-text" type="text" name="username" value="<s:property value="studentUser.username"/>" ></div>
+        </div>
+        <div class="control-group">
+           <label class="control-label">密码：</label>
+           <div class="controls"><input class="input-normal control-text" type="text" name="password" value="<s:property value="studentUser.password"/>" ></div>
+        </div>
+        <div class="control-group">
            <label class="control-label">年龄：</label>
            <div class="controls"><input class="input-normal control-text" type="text" name="age" value="<s:property value="studentUser.age"/>" ></div>
         </div>

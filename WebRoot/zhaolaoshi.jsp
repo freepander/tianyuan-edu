@@ -74,6 +74,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <a href='javascript:void(0);' id="teacher-qiehuan-left" style="position:absolute; top: 180px; left: -175px; display:block; width: 40px; height: 70px; background:url(img/qiehuan_left.png); z-index: 1000;"></a>
       <a href='javascript:void(0);' id="teacher-qiehuan-right" style="position:absolute; top: 180px; left:710px; display:block; width: 40px; height: 70px; background:url(img/qiehuan_right.png); z-index: 1000;"></a>
       <div id="tishi-tanchu" style="width: 153px; height: 153px; background:url(img/tishi_laoshi.png);position:absolute; top: -14px; left: 30px;"></div>
+      <div style="width:60px;height:130px;position:absolute;top:341px;left:-210px;color:#FFF; text-align:right;">
+      	<p style="line-height:24px;background:#D45E04;border-radio-left:15px;">默认</p>
+      	<p>评分</p>
+      </div>
       <div id="laoshi-list">
       	<div id="list-border">
         <ul id="top">

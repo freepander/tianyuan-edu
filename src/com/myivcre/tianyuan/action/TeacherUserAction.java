@@ -102,6 +102,8 @@ public class TeacherUserAction extends BaseAction {
 		this.teacherUser.setQq(qq);
 		this.teacherUser.setHome(home);
 		this.teacherUser.setSex(sex);
+		this.teacherUser.setSoucre(4);
+		this.teacherUser.setSoucreNumber(1);
 		this.teacherUser.setZipcode(zipcode);
 		this.teacherUser.setTelphone(telphone);
 		this.teacherUser.setTime(time);

@@ -2,6 +2,7 @@ package com.myivcre.tianyuan.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,13 +17,14 @@ import javax.persistence.ManyToOne;
 public class Review {
 	@Id@GeneratedValue
 	private long id;
+	@Column(length=10000)
 	private String content;
 	private Date date;
 	@ManyToOne
 	private StudentUser student;
 	@ManyToOne
 	private TeacherUser teacher;
-	public long getId() {
+	public long getId() { 
 		return id;
 	}
 	public void setId(long id) {

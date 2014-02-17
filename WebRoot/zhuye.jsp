@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <div id="sub-content">
     	<s:if test='ad.pic!=""'>
-    	<div id="" style="width:750px; height: 144px;position:absolute;top:60px; left:-69px;">
+    	<div id="" style="width:460px; height: 144px;position:absolute;top:60px; left:-69px;">
     		<img src="upload/books/<s:property value="ad.pic"/>" width="100%" height="100%">
     	</div>
     	</s:if>

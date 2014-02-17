@@ -32,7 +32,7 @@ public class StudentUserAction extends BaseAction {
 	private boolean newcome;
 	private Date date;
 	public String list(){
-		this.list = this.baseService.getByHal("from studentuser");		
+		this.list = this.baseService.getByHal("from studentuser order by id desc");		
 		return "success";
 	}
 	public String addMessage(){
@@ -92,6 +92,8 @@ public class StudentUserAction extends BaseAction {
 		this.studentUser.setLogo(logo);
 		this.studentUser.setNewcome(true);
 		this.studentUser.setDate(new Date());
+		this.studentUser.setUsername(username);
+		this.studentUser.setPassword(password);
 		this.baseService.save(this.studentUser);
 		return "list";
 	}
@@ -117,6 +119,8 @@ public class StudentUserAction extends BaseAction {
 		this.studentUser.setTime(time);
 		this.studentUser.setIsvisible(true);
 		this.studentUser.setLogo(logo);
+		this.studentUser.setUsername(username);
+		this.studentUser.setPassword(password);
 		this.baseService.save(this.studentUser);
 		return "list";
 	}

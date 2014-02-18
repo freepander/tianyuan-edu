@@ -219,6 +219,8 @@ public class ShouYeAction extends BaseAction {
 			this.studentUser.setNewcome(true);
 			this.studentUser.setDate(new Date());
 			this.studentUser.setState(state);
+			this.studentUser.setLesson(lesson);
+			this.studentUser.setRecommend(recommend);
 			this.baseService.save(this.studentUser);
 			response.getOutputStream().write("success".getBytes());
 			try {
@@ -340,6 +342,7 @@ public class ShouYeAction extends BaseAction {
 		this.teacherUser.setPost(post);
 		this.teacherUser.setPolitical(political);
 		this.teacherUser.setPost2(post2);
+		this.teacherUser.setRecommend(recommend);
 		this.baseService.save(this.teacherUser);
 		this.list=this.baseService.getByHal("from teacheruser t where t.username = '"+username+"' and t.password = '"+password+"'");
 		this.teacherUser=(TeacherUser)this.list.get(0);

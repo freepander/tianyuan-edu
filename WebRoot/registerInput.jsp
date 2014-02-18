@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 		<div style="width:100%;height:100%;position:relative;padding-top:100px;">
-			<div style="width:600px;height:400px;margin-left:auto;margin-right:auto;background:url(img/bg11.png);color:#FFF;position:relative;">
+			<div style="width:600px;height:480px;margin-left:auto;margin-right:auto;background:url(img/bg11.png);color:#FFF;position:relative;">
 				<div style="width:400px; height:100%;float:right;" >
 					<form id="fun_zhuce_student" style="padding-top:10px;line-height:26px;">
 						<p>邮&nbsp;&nbsp;&nbsp;&nbsp;箱：<input type="text" name="email"></p>
@@ -18,6 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<option value='<s:property value="id"/>'><s:property value="name"/></option>
 						</s:iterator>
 						</select></p>
+						<p>意向科目：<input type="text" name="lesson"></p>
 						<p>预期费用：<input type="text" name="money">元/课时</p>
 						<p>时间安排：<input type="text" name="time"></p>
 						<p>姓&nbsp;&nbsp;&nbsp;&nbsp;名：<input type="text" name="name"></p>
@@ -26,6 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<p>电&nbsp;&nbsp;&nbsp;&nbsp;话：<input type="text" name="telphone"></p>
 						<p>学&nbsp;&nbsp;&nbsp;&nbsp;校：<input type="text" name="school"></p>
 						<p>是否着急：<input value="100" name="state" type="radio" />很急<input value="10" name="state" type="radio" checked />长期、不急</p>
+						<p>备&nbsp;&nbsp;&nbsp;&nbsp;注：<textarea style="width:152px;height:60px;" name="recommend"></textarea></p>
 						<input type="submit" value="提交" style="margin-left:187px;margin-top:10px;padding-top:4px;padding-bottom:4px;padding-left:10px;padding-right:10px;background:#FFF;color:#000;border:0;border-radius:15px;">
 					</form>
 					<form id="fun_zhuce_teacher" style="display:none;padding-top:10px;line-height:26px;">
@@ -46,6 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<p>学&nbsp;&nbsp;&nbsp;&nbsp;历：<input type="text" name="post"></p>
 						<p>学&nbsp;&nbsp;&nbsp;&nbsp;校：<input type="text" name="political"></p>
 						<p>专&nbsp;&nbsp;&nbsp;&nbsp;业：<input type="text" name="post2"></p>
+						<p style="margin-top:2px;">备&nbsp;&nbsp;&nbsp;&nbsp;注：<textarea style="width:152px;height:60px;" name="recommend"></textarea></p>
 						<input type="submit" value="提交" style="margin-left:187px;margin-top:10px;padding-top:4px;padding-bottom:4px;padding-left:10px;padding-right:10px;background:#FFF;color:#000;border:0;border-radius:15px;">
 					</form>
 				</div>
@@ -71,7 +74,7 @@ $('#fun_zhuce_student').submit(function(){
 	if(!reg2.test(username)){alert("用户名只能由字母和数字组成，请更换。");return false;}
 	if(username.length<5){alert("用户名长度不能小于5位");return false;}
 	$.post("shouye_studentRegister2",$('#fun_zhuce_student').serialize(),function(data){
-		if(data=="success"){alert("注册成功！。");location.href="index.jsp";
+		if(data=="success"){alert("注册成功！");location.href="index.jsp";
 		}else if(data=="error1"){alert("改用户名或邮箱已被占用，请更换后重试。");}
 	})
 	return false;

@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  		<input type="button" value="点击上传" onclick="path.click()">
 			<input type="file" name="uploadify" style="display:none;" id="path" onchange="upload_logo(this)">
 		   </div>
-		   <label class="control-label">图片大小：750px*144px</label>
+		   <label class="control-label">图片大小：460px*144px</label>
          </div>
          <div class="row">
            <div class="form-actions offset3">

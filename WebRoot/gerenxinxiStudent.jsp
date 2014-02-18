@@ -27,18 +27,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a id="sub-circle7" href="javascript:void(0);"> </a>
     </div>
     <div id="sub-content">
-    	<div class="recommend">
+    	<div class="recommend" style="width:300px;">
     		<h2>每日推荐<br><small>The recommended daliy</small></h2>
-    		<ul>
+    		<ul style="float:left;width:150px;">
     		<s:iterator value="listT">
-    			<li><a href="jigou/<s:property value="url" />"><img src="upload/organizationlogo/<s:property value="logo" />"></a></li>
+    			<li style="width:150px;"><a href="jigou/<s:property value="url" />"><img src="upload/organizationlogo/<s:property value="logo" />"></a></li>
     		</s:iterator>
     		</ul>
+    		<ul style="float:right;width:150px;">
+    		<s:iterator value="listT2">
+    			<li style="width:150px;"><a class="fun_opengeren" data-id="<s:property value="id"/>" href="javascript:void(0);"><img src="upload/teacherlogo/<s:property value="logo" />"></a></li>
+    		</s:iterator>
+    		</ul>
+    		
+    		
     	</div>
-    	<img class="logo" style="position:absolute; top: 100px; left: -102px;width: 150px; height: 150px;" src="upload/studentlogo/<s:property value="studentUser.logo"/>">
+    	<img class="logo" style="position:absolute; top: 100px; left: -102px;width: 100px; height: 100px;" src="upload/studentlogo/<s:property value="studentUser.logo"/>">
     	<input type="button" value="点击更换头像" onclick="path.click()" style="position:absolute;top:227px;left:-92px;cursor:pointer;display:none;border:0px solid #FFF; border-left: none; border-right: none; width: 126px;  color: #FFF; font-size: 16px;;background: red; padding-top: 2px; padding-bottom: 2px; border-radius: 14px;">
     	<input type="file" name="myFile" id="path" style="display:none" onchange="upload_logo(this)">
-    	<div class="gerenxinxi-div" style="padding-top:60px;">
+    	<div class="gerenxinxi-div" style="padding-top:60px;width:300px;">
     		<div id="fun_gerenxinxi_div" style="height: 580px; width: 300px;; overflow:auto;">
     		<form action="shouye_updateStudentMessage" id="gerenxinxi-div-student-form">
     			<input name="id" value="<s:property value="studentUser.id"/>" type="hidden">
@@ -102,6 +109,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           });
     });
     </script>
+    <script>
+    $('.fun_opengeren').click(function(){
+		  var id=$(this).attr('data-id');
+		    $('#content').load("shouye_gerenteacher",{id: id},function() {
+		    	
+		    }).show(400);
+		    return false;
+    })
+    		</script>
     <script type="text/javascript">
     var freepander_width=$(window).width();
     if(freepander_width<1360){

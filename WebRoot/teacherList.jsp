@@ -33,6 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 $("#laoshi-list #body a").click(function(){
 	$('.studentMessage').hide();
 	var id=$(this).data('id');
+	$.get("shouye_teacherLookAdd?id="+id);
     $.getJSON("index_teacherMessage",{id:id},function(json){
       var studentMessage=$("<div class='studentMessage'></div>");
       var studentClose=$("<a class='close' href='javascript:void(0)'></a>");

@@ -37,7 +37,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<p style="margin-bottom:8px;font-size:16px;">课程：<s:property value="studentUser.lesson"/></p>
 			<p style="margin-bottom:8px;font-size:16px;">时间安排：<s:property value="studentUser.time"/></p>
 			<p style="margin-bottom:8px;font-size:16px;">预期费用：<s:property value="studentUser.money"/></p>
-			<p style="margin-bottom:8px;font-size:16px;">性别：<s:property value="studentUser.sex"/></p>
 			<p style="margin-bottom:8px;font-size:16px;">年龄：<s:property value="studentUser.age"/></p>
 			<p style="margin-bottom:8px;font-size:16px;">学校：<s:property value="studentUser.school"/></p>
 			<p style="margin-bottom:8px;font-size:16px;">邮箱：<s:property value="studentUser.email"/></p>

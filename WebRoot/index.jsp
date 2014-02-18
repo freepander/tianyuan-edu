@@ -47,6 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		<a id="index-zhuxiao" class="zhuxiao" href="javascript:void(0);"> </a>
   		<%}else { %>
   		<a id="index-denglu" href="javascript:void(0);"> </a>
+  		<a style="background:url(img/zhuce20.png);position:absolute;top:0px; right:243px;display:block;height:40px;width:80px;" href="javascript:openZhucekuang()"> </a>
   		<%} %>
   		<a id="index-yuyue" href="javascript:void(0);" onclick="ib_wopen();"> </a>
   		
@@ -63,6 +64,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	</div>
   	<!--  子页锚点  -->
 	<div id="content">
+	</div>
+	<div id="fun_zhucekuangwai" style="display:none;width:100%;height:100%;position:absolute;top:0px;left:0px;z-index:10000;">
+		
+		
+		
+		
+		
 	</div>
     <!--  登录框   -->
     <div id="denglukuangwai">
@@ -167,7 +175,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<script type="text/javascript" src="js/jquery.cookie.js"></script>
   	<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
   	<script type="text/javascript" src="js/jquery.raty.min.js"></script>
-  	
+  	<script>
+  		function openZhucekuang(){
+  			$('#fun_zhucekuangwai').load("shouye_registerInput",function(){
+  				$('#fun_zhucekuangwai').show();	
+  			})
+  		}
+		
+		</script>
   	<script type="text/javascript">
   	$("#organizationLogin").click(function(){
   		var username=$("#organizationLoginForm input[name='username']").val();

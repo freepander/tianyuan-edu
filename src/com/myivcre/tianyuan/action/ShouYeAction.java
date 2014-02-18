@@ -2,6 +2,7 @@ package com.myivcre.tianyuan.action;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -188,6 +189,55 @@ public class ShouYeAction extends BaseAction {
 		}
 		return null;
 	}
+	
+	public String studentRegister2() throws IOException{
+		HttpServletResponse response=ServletActionContext.getResponse();
+		response.setCharacterEncoding("utf-8");
+		this.list=this.baseService.getByHal("from studentuser where email='"+this.email+"' or username='"+this.username+"'");
+		if(this.list.size()>0){
+			try {
+				response.getOutputStream().write("error1".getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return null;
+		}else{
+			this.studentUser=new StudentUser();
+			this.studentUser.setUsername(username);
+			this.studentUser.setPassword(password);
+			this.studentUser.setEmail(email);
+			StudentCategory category=(StudentCategory)this.baseService.get(StudentCategory.class, categoryId);
+			this.studentUser.setCategory(category);
+			this.studentUser.setMoney(money);
+			this.studentUser.setTime(time);
+			this.studentUser.setName(name);
+			this.studentUser.setSex(sex);
+			this.studentUser.setAge(age);
+			this.studentUser.setTelphone(telphone);
+			this.studentUser.setLogo("studentuserlogo.png");
+			this.studentUser.setSchool(school);
+			this.studentUser.setNewcome(true);
+			this.studentUser.setDate(new Date());
+			this.studentUser.setState(state);
+			this.baseService.save(this.studentUser);
+			response.getOutputStream().write("success".getBytes());
+			try {
+				q.add("username = ?");
+				a.add(username);
+				q.add("password = ?");
+				a.add(password);
+				this.pageModel = this.baseService.getPageModel("studentuser", pageNum, 20,orderby,q,a);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			this.list=this.pageModel.getObjects();
+			this.studentUser=(StudentUser)list.get(0);
+			response.addCookie(new Cookie("userId","student"+String.valueOf(this.studentUser.getId())));
+			response.addCookie(new Cookie("username", this.studentUser.getUsername()));
+		}
+		
+		return null;
+	}
 	/**
 	 * 老师登录
 	 * @return
@@ -243,6 +293,53 @@ public class ShouYeAction extends BaseAction {
 		this.teacherUser.setIshuiyuan(false);
 		this.teacherUser.setSoucre(4);
 		this.teacherUser.setSoucreNumber(1);
+		this.baseService.save(this.teacherUser);
+		this.list=this.baseService.getByHal("from teacheruser t where t.username = '"+username+"' and t.password = '"+password+"'");
+		this.teacherUser=(TeacherUser)this.list.get(0);
+		response.addCookie(new Cookie("userId","teacher"+String.valueOf(this.teacherUser.getId())));
+		response.addCookie(new Cookie("username", this.teacherUser.getUsername()));
+		try {
+			response.getOutputStream().write(String.valueOf(this.teacherUser.getId()).getBytes());
+			return null;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	public String teacherRegister2() throws IOException{
+		this.list=this.baseService.getByHal("from teacheruser");
+		HttpServletResponse response=ServletActionContext.getResponse();
+		response.setCharacterEncoding("utf-8");
+		for(int i=0;i<list.size();i++){
+			if(null!=((TeacherUser)list.get(i)).getUsername()&&((TeacherUser)list.get(i)).getUsername().equals(username)){
+				try {
+					response.getOutputStream().write("error".getBytes());
+					return null;
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		this.teacherUser=new TeacherUser();
+		this.teacherUser.setUsername(username);
+		this.teacherUser.setPassword(password);
+		this.teacherUser.setEmail(email);
+		this.teacherUser.setLogo("teacheruserheader.png");
+		this.teacherUser.setDianji(0);
+		this.teacherUser.setIshuiyuan(false);
+		this.teacherUser.setSoucre(4);
+		this.teacherUser.setSoucreNumber(1);
+		TeacherCategory category = (TeacherCategory)this.baseService.get(TeacherCategory.class, categoryId);
+		this.teacherUser.setCategory(category);
+		this.teacherUser.setMoney(money);
+		this.teacherUser.setLesson(lesson);
+		this.teacherUser.setTime(time);
+		this.teacherUser.setName(name);
+		this.teacherUser.setSex(sex);
+		this.teacherUser.setTelphone(telphone);
+		this.teacherUser.setPost(post);
+		this.teacherUser.setPolitical(political);
+		this.teacherUser.setPost2(post2);
 		this.baseService.save(this.teacherUser);
 		this.list=this.baseService.getByHal("from teacheruser t where t.username = '"+username+"' and t.password = '"+password+"'");
 		this.teacherUser=(TeacherUser)this.list.get(0);
@@ -312,6 +409,20 @@ public class ShouYeAction extends BaseAction {
 				e.printStackTrace(); 
 			}
 			this.listT=this.pageModel.getObjects();
+			try {
+				if(this.studentUser.getCategory()!=null){
+					q=new ArrayList<String>();
+					a=new ArrayList<Object>();
+					q.add("category.name like ?");
+					a.add(this.studentUser.getCategory().getName());
+					q.add("ishuiyuan=?");
+					a.add(true);
+				}
+				this.pageModel = this.baseService.getPageModel("teacheruser", pageNum, 3,orderby,q,a);
+			} catch (Exception e) {
+				e.printStackTrace(); 
+			}
+			this.listT2=this.pageModel.getObjects();
 			return "gerenxinxiStudent";
 		}else if(userid.startsWith("teacher")){
 			String i=userid.substring(7);
@@ -458,7 +569,8 @@ public class ShouYeAction extends BaseAction {
 	 */
 	public String gerenteacher(){
 		this.teacherUser=(TeacherUser)this.baseService.get(TeacherUser.class, id);
-		this.list=this.baseService.getByHal("from teacheruser where category.id="+this.teacherUser.getId()+" and ishuiyuan=true and id!="+this.teacherUser.getId());
+		this.list=this.baseService.getByHal("from teacheruser where category.id="+this.teacherUser.getCategory().getId()+" and ishuiyuan=true and id!="+this.teacherUser.getId());
+		//System.out.println("from teacheruser where category.id="+this.teacherUser.getId()+" and ishuiyuan=true and id!="+this.teacherUser.getId());
 		return "gerenteacher";
 	}
 	/**
@@ -583,7 +695,13 @@ public class ShouYeAction extends BaseAction {
 			return null;
 		}
 	
-	
+	public String registerInput(){
+		this.listT=this.baseService.getByHal("from studentcategory");
+		this.listT2=this.baseService.getByHal("from teachercategory");
+		
+		
+		return "success";
+	}
 	
 	
 	

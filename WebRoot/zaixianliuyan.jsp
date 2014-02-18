@@ -38,6 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<a id="sub-zhuxiao7" class="zhuxiao" href="javascript:void(0);"> </a>
 	<%}else { %>
 	<a id="sub-denglu7" href="javascript:void(0);"> </a>
+	<a style="background:url(img/zhuce27.png);position:absolute;top:0px; right:243px;display:block;height:40px;width:80px;z-index:1000;" href="javascript:openZhucekuang()"> </a>
 	<%} %>
 	<a id="sub-yuyue7" href="javascript:void(0);" onclick="ib_wopen();"> </a>
     <a id="sub-lianxiwomen7" href="javascript:void(0);"> </a>
@@ -53,6 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a id="sub-circle7b" href="javascript:void(0);"> </a>
     </div>
     <div id="sub-content">
+    	<a href='javascript:openZhucekuang()' style="display:block;background:url(img/zhuce7.png);width:304px; height:70px;position:absolute;top:61px; right:0px;z-index:10000;"></a>
       <form id="zaixianliuyan" action="index_addMessage" method="post" >
       	<h2>在线留言<br><small>Message online</small></h2>
       	<label>姓名：</label><input name="name" type="text" />
@@ -65,6 +67,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript">
+  //弹出注册按钮
+    $('.fun_tanchu_zhuce').mouseover(function(){
+    	$(this).animate({right:0},1000)
+    })
+    $('.fun_tanchu_zhuce').mouseout(function(){
+    	$(this).animate({right:-270},1000)
+    })
     var freepander_width=$(window).width();
     if(freepander_width<1360){
     	$('body').css('overflow','scroll');

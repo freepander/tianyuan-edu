@@ -40,6 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<a id="sub-zhuxiao3" class="zhuxiao" href="javascript:void(0);"> </a>
 	<%}else { %>
 	<a id="sub-denglu3" href="javascript:void(0);"> </a>
+	<a style="background:url(img/zhuce23.png);position:absolute;top:0px; right:243px;display:block;height:40px;width:80px;z-index:1000;" href="javascript:openZhucekuang()"> </a>
 	<%} %>
 	<a id="sub-yuyue3" href="javascript:void(0);" onclick="ib_wopen();"> </a>
     <a id="sub-lianxiwomen3" href="javascript:void(0);"> </a>
@@ -60,6 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<img src="upload/books/<s:property value="ad.pic"/>" width="100%" height="100%">
     	</div>
     	</s:if>
+    	<a href='javascript:openZhucekuang()' style="display:block;background:url(img/zhuce3.png);width:304px; height:70px;position:absolute;top:61px; right:0px;"></a>
     	
     	<div id="news-list">
     		<span> </span>

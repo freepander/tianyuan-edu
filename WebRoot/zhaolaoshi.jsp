@@ -38,6 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<a id="sub-zhuxiao1" class="zhuxiao" href="javascript:void(0);"> </a>
 	<%}else { %>
 	<a id="sub-denglu1" href="javascript:void(0);"> </a>
+	<a style="background:url(img/zhuce21.png);position:absolute;top:0px; right:243px;display:block;height:40px;width:80px;z-index:1000;" href="javascript:openZhucekuang()"> </a>
 	<%} %>
 	<a id="sub-yuyue1" href="javascript:void(0);" onclick="ib_wopen();"> </a>
     <a id="sub-lianxiwomen1" href="javascript:void(0);"> </a>
@@ -53,6 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a id="sub-circle7" href="javascript:void(0);"> </a>
     </div>
     <div id="sub-content">
+    	<a class="fun_tanchu_zhuce" href='javascript:openZhucekuang()' style="display:block;background:url(img/zhuce1.png);width:304px; height:70px;position:absolute;top:61px; right:-270px;z-index:10000;"></a>
       <div id="laoshi-nav">
         <ul id="top">
         	<form id="search" action="search_teacher" method="post" style="float: right;margin-top:10px;margin-right: 40px; z-index: 200000; background:#D45E04; padding-left: 10px; padding-right: 10px; border-radius: 20px;-webkit-border-radius:20px;-moz-border-radius:20px;height: 34px; line-height: 32px; width: 220px;">
@@ -74,10 +76,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <a href='javascript:void(0);' id="teacher-qiehuan-left" style="position:absolute; top: 180px; left: -175px; display:block; width: 40px; height: 70px; background:url(img/qiehuan_left.png); z-index: 1000;"></a>
       <a href='javascript:void(0);' id="teacher-qiehuan-right" style="position:absolute; top: 180px; left:710px; display:block; width: 40px; height: 70px; background:url(img/qiehuan_right.png); z-index: 1000;"></a>
       <div id="tishi-tanchu" style="width: 153px; height: 153px; background:url(img/tishi_laoshi.png);position:absolute; top: -14px; left: 30px;"></div>
+      <!-- 
       <div style="width:60px;height:130px;position:absolute;top:341px;left:-210px;color:#FFF; text-align:right;">
       	<p style="line-height:24px;background:#D45E04;border-radio-left:15px;">默认</p>
       	<p>评分</p>
       </div>
+       -->
       <div id="laoshi-list">
       	<div id="list-border">
         <ul id="top">
@@ -91,6 +95,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script>
+  //弹出注册按钮
+    $('.fun_tanchu_zhuce').mouseover(function(){
+    	$(this).animate({right:0},500)
+    })
+    $('.fun_tanchu_zhuce').mouseout(function(){
+    	$(this).animate({right:-270},500)
+    })
     $(window).ready(function(){
     	var id=$('#top').find(".active").first().attr("data-id");
     	$.get("index_teacherList",{id: id},function(data) {

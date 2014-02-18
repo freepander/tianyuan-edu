@@ -37,6 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<a id="sub-zhuxiao6" class="zhuxiao" href="javascript:void(0);"> </a>
 	<%}else { %>
 	<a id="sub-denglu6" href="javascript:void(0);"> </a>
+	<a style="background:url(img/zhuce26.png);position:absolute;top:0px; right:243px;display:block;height:40px;width:80px;z-index:1000;" href="javascript:openZhucekuang()"> </a>
 	<%} %>
 	<a id="sub-yuyue6" href="javascript:void(0);" onclick="ib_wopen();"> </a>
     <a id="sub-lianxiwomen6" href="javascript:void(0);"> </a>
@@ -51,6 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a id="sub-circle7" href="javascript:void(0);"> </a>
     </div>
     <div id="sub-content">
+    	<a class="fun_tanchu_zhuce" href='javascript:openZhucekuang()' style="display:block;background:url(img/zhuce6.png);width:304px; height:70px;position:absolute;top:61px; right:-270px;z-index:10000;"></a>
       <div id="xuesheng-nav" >	
         <ul id="top">
         <form id="search" action="search_student" method="post" style="float: right;margin-top:10px;margin-right: 40px; z-index: 200000; background:#A628E1; padding-left: 10px; padding-right: 10px; border-radius: 20px;-webkit-border-radius:20px;-moz-border-radius:20px;height: 34px; line-height: 32px; width: 220px;display:block;">
@@ -75,6 +77,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <div class="studentMessage"><a class="close" href="#"></a></div>
     <script>
+    //弹出注册按钮
+    $('.fun_tanchu_zhuce').mouseover(function(){
+    	$(this).animate({right:0},500)
+    })
+    $('.fun_tanchu_zhuce').mouseout(function(){
+    	$(this).animate({right:-270},500)
+    })
     $(window).ready(function(){
     	//$("#xuesheng-list").mCustomScrollbar();
     	var id=$('#top').find(".active").first().attr("data-id");

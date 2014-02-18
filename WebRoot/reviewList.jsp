@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div style="width:300px;float:right;">
 		<h3 style="font-size:18px;"><s:property value="student.name"/></h3>
-		<p><s:property value="date"/></p>
+		<p style="font-size:12px;"><s:date name="date" format="yyyy年MM月dd日"/></p>
 		<p style="font-size:16px;"><s:property value="content"/></p>
 	</div>
 	<div style="clear:both;"></div>

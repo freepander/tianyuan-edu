@@ -34,7 +34,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			<li style="width:150px;"><a href="jigou/<s:property value="url" />"><img src="upload/organizationlogo/<s:property value="logo" />"></a></li>
     		</s:iterator>
     		</ul>
-    		<ul style="float:right;width:150px;">
+    		<ul style="float:right;width:150px;height:470px;overflow:hidden;">
+    		<s:iterator value="listT3">
+    			<li style="width:150px;"><a target="_blank" href="teacher/<s:property value="url"/>"><img src="upload/teacherlogo/<s:property value="logo" />"></a></li>
+    		</s:iterator>
     		<s:iterator value="listT2">
     			<li style="width:150px;"><a class="fun_opengeren" data-id="<s:property value="id"/>" href="javascript:void(0);"><img src="upload/teacherlogo/<s:property value="logo" />"></a></li>
     		</s:iterator>

@@ -21,6 +21,7 @@ public class StudentCategoryAction extends BaseAction {
 	public String update(){
 		this.category=(StudentCategory) this.baseService.get(StudentCategory.class, id);
 		this.category.setName(name);
+		this.baseService.update(this.category);
 		return "list";
 	}
 	public String add(){

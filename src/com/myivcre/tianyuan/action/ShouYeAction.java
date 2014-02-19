@@ -58,6 +58,7 @@ public class ShouYeAction extends BaseAction {
 	private List listT;
 	private Organization organization;
 	private List listT2;
+	private List listT3;
 	private long industryId;
 	private long regionalId;
 	private String introduce;
@@ -426,6 +427,18 @@ public class ShouYeAction extends BaseAction {
 				e.printStackTrace(); 
 			}
 			this.listT2=this.pageModel.getObjects();
+			try {
+				if(this.studentUser.getCategory()!=null){
+					q=new ArrayList<String>();
+					a=new ArrayList<Object>();
+					q.add("category.name like ?");
+					a.add(this.studentUser.getCategory().getName());
+				}
+				this.pageModel = this.baseService.getPageModel("teacher", pageNum, 3,orderby,q,a);
+			} catch (Exception e) {
+				e.printStackTrace(); 
+			}
+			this.listT3=this.pageModel.getObjects();
 			return "gerenxinxiStudent";
 		}else if(userid.startsWith("teacher")){
 			String i=userid.substring(7);
@@ -932,6 +945,12 @@ public class ShouYeAction extends BaseAction {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public List getListT3() {
+		return listT3;
+	}
+	public void setListT3(List listT3) {
+		this.listT3 = listT3;
 	}
 
 	

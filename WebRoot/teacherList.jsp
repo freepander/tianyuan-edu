@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <ul id="top">
 	<s:iterator value="teacherList">
 		<li>
-      <a href="teacher/<s:property value="url"/>">
+      <a target="_blank" href="teacher/<s:property value="url"/>">
         <img src="upload/teacherlogo/<s:property value="logo"/>" />
         <p>姓名：<s:property value="name"/><br>科目：<s:property value="lesson"/></p>
       </a>

@@ -6,9 +6,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 
 
-		<div style="width:100%;height:100%;position:relative;padding-top:100px;">
-			<div style="width:600px;height:480px;margin-left:auto;margin-right:auto;background:url(img/bg11.png);color:#FFF;position:relative;">
+		<div style="width:100%;height:100%;position:relative;padding-top:40px;">
+			<div style="width:600px;height:540px;margin-left:auto;margin-right:auto;background:url(img/bg11.png);color:#FFF;position:relative;">
 				<div style="width:400px; height:100%;float:right;" >
+					<div style="padding-top:20px;">
+						<input type="radio" name="shenfen" checked id="fun_xuanze_student">我是学生<input type="radio" name="shenfen" id="fun_xuanze_teacher">我是老师
+					</div>
 					<form id="fun_zhuce_student" style="padding-top:10px;line-height:26px;">
 						<p>邮&nbsp;&nbsp;&nbsp;&nbsp;箱：<input type="text" name="email"></p>
 						<p>用&nbsp;户&nbsp;名：<input type="text" name="username"></p>
@@ -53,10 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</form>
 				</div>
 				<h2 style="margin-left:40px; padding-top:10px;width:100px;">注册</h2>
-				<select id="fun_select_shenfen" style="margin-left:40px; margin-top:20px; ">
-					<option value="1">我是学生</option>
-					<option value="2">我是老师</option>
-				</select>
+				
 				<a id="fun_close_register" style="color:#FFF;position:absolute;right:10px;bottom:10px;" href="javascript:void(0);">关闭</a>
 			</div>
 		</div>
@@ -97,15 +97,15 @@ $('#fun_zhuce_teacher').submit(function(){
 	})
 	return false;
 })
-$('#fun_select_shenfen').change(function(){
-	if($(this).val()==1){
-		$('#fun_zhuce_student').show();
-		$('#fun_zhuce_teacher').hide();
-	}else{
-		$('#fun_zhuce_student').hide();
-		$('#fun_zhuce_teacher').show();
-	}
-});
+$('#fun_xuanze_student').click(function(){
+	$('#fun_zhuce_student').show();
+	$('#fun_zhuce_teacher').hide();
+})
+$('#fun_xuanze_teacher').click(function(){
+	$('#fun_zhuce_student').hide();
+	$('#fun_zhuce_teacher').show();
+})
+
 $('#fun_close_register').click(function(){
 	$('#fun_zhucekuangwai').hide();
 })

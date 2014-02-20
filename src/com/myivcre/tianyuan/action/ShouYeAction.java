@@ -3,6 +3,7 @@ package com.myivcre.tianyuan.action;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -402,6 +403,7 @@ public class ShouYeAction extends BaseAction {
 			}else {
 				this.asex=true;
 			}
+			//找到机构
 			try {
 				if(this.studentUser.getCategory()!=null){
 					q.add("industry.name like ?");
@@ -413,6 +415,7 @@ public class ShouYeAction extends BaseAction {
 				e.printStackTrace(); 
 			}
 			this.listT=this.pageModel.getObjects();
+			//找到老师用户
 			try {
 				if(this.studentUser.getCategory()!=null){
 					q=new ArrayList<String>();
@@ -422,11 +425,12 @@ public class ShouYeAction extends BaseAction {
 					q.add("ishuiyuan=?");
 					a.add(true);
 				}
-				this.pageModel = this.baseService.getPageModel("teacheruser", pageNum, 3,orderby,q,a);
+				this.pageModel = this.baseService.getPageModel("teacheruser", pageNum, 6,orderby,q,a);
 			} catch (Exception e) {
 				e.printStackTrace(); 
 			}
 			this.listT2=this.pageModel.getObjects();
+			//找到老师
 			try {
 				if(this.studentUser.getCategory()!=null){
 					q=new ArrayList<String>();
@@ -434,11 +438,38 @@ public class ShouYeAction extends BaseAction {
 					q.add("category.name like ?");
 					a.add(this.studentUser.getCategory().getName());
 				}
-				this.pageModel = this.baseService.getPageModel("teacher", pageNum, 3,orderby,q,a);
+				this.pageModel = this.baseService.getPageModel("teacher", pageNum, 6,orderby,q,a);
 			} catch (Exception e) {
 				e.printStackTrace(); 
 			}
 			this.listT3=this.pageModel.getObjects();
+			Calendar rightNow = Calendar.getInstance();
+	        String[] data = rightNow.getTime().toString().split(" ");
+	        if(Integer.parseInt(data[2].toString()) % 2 == 0){
+	        	//奇数
+	        	for(int ii=0;ii<listT.size();ii++){
+					if(ii%2==0){
+						this.listT2.remove(ii);
+					}
+				}
+				for(int ii=0;ii<listT.size();ii++){
+					if(ii%2==0){
+						this.listT3.remove(ii);
+					}
+				}
+	        }else{
+	        	//哦数
+	        	for(int ii=0;ii<listT.size();ii++){
+					if(ii%2==1){
+						this.listT2.remove(ii);
+					}
+				}
+				for(int ii=0;ii<listT.size();ii++){
+					if(ii%2==1){
+						this.listT3.remove(ii);
+					}
+				}
+	        }
 			return "gerenxinxiStudent";
 		}else if(userid.startsWith("teacher")){
 			String i=userid.substring(7);

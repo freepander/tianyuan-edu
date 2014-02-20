@@ -169,8 +169,10 @@ body {font-family: 黑体 ;  background-color: #000; background-image: url('../i
 #xuesheng-list .state{width: 20px; height: 20px; float: right; margin-top: -20px; }
 .studentMessage{position: absolute; margin-top: 100px; background-color: #101110; width:664px; color: #fff; padding-bottom: 80px; z-index: 500; display: none; background: url('../img/bg11.png')}
 .studentMessage .close{width: 32px; height: 32px; float: right; margin-right: 4px; margin-top: 4px; background-image: url('../img/guanbi2.png'); }
-.studentMessage img{display: block; float: left; margin-left: 58px; margin-top: 62px; width: 90px; height: 90px;}
+.studentMessage .logo{display: block; float: left; margin-left: 58px; margin-top: 62px; width: 90px; height: 90px;}
 .studentMessage p{display: block; margin-left: 196px; padding-top: 62px; font-size: 20px; line-height: 26px; letter-spacing: 4px; margin-bottom: 30px;  }
+.studentMessage .fun_teacher_source{margin-left:260px;margin-top:-50px;}
+.studentMessage .fun_teacher_source2{margin-top:-87px;margin-left:385px;}
 .studentMessage .student-yuyue{border: 0px solid #fff; background:#A628E1; color: #fff; float: right; margin-right: 10px; font-size: 20px; padding-left: 10px; padding-right: 10px; padding-top: 4px; padding-bottom: 4px;-webkit-border-radius: 16px; -moz-border-radius: 16px; border-radius: 16px; cursor : pointer;}
 /*  找老师样式   */
 #laoshi-nav{position: relative; padding-top: 60px;}

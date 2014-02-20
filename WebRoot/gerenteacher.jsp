@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="service_rating">
 				<p style="float:left;">评分：</p>
 				<div style=" width:330px; float:right;">
-				<span style="float:right;"><s:property value="teacherUser.soucre"/></span>
+				<span style="float:right;"><s:if test="teacherUser.soucreNumber==1">暂无评价</s:if><s:if test="teacherUser.soucreNumber>1"><s:property value="teacherUser.soucre"/></s:if></span>
 					<div id="socure" data-id="<s:property value="teacherUser.id"/>">
 					</div>
 					

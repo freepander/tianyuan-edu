@@ -37,14 +37,25 @@ $("#laoshi-list #body a").click(function(){
     $.getJSON("index_teacherMessage",{id:id},function(json){
       var studentMessage=$("<div class='studentMessage'></div>");
       var studentClose=$("<a class='close' href='javascript:void(0)'></a>");
-      var studentImg=$("<img src='upload/teacherlogo/"+json['logo']+"' >");
-      var studentP=$("<p>姓名："+json['name']+"<br/>授课科目："+json['lesson']+"<br/>费用："+json['money']+"<br/>时间安排："+json['time']+"<br/>期望课时费："+json['money']+"<br/></p>");
+      var studentImg=$("<img class='logo' src='upload/teacherlogo/"+json['logo']+"' >");
+      var studentP=$("<p>姓名："+json['name']+"<br/>授课科目："+json['lesson']+"<br/>费用："+json['money']+"<br/>时间安排："+json['time']+"<br/>期望课时费："+json['money']+"<br/>评分：</p>");
+      var source0=$("<p>评分</p>");
+      var source=$("<div class='fun_teacher_source'></div>");
+      var source2=$("<p class='fun_teacher_source2'></p>")
       var yuyue=$("<button class='student-yuyue'  onclick='ib_wopen();'>预约</button><button data-id='"+id+"'  class='student-yuyue' onclick='openGerenzhuye(this)'>主页</button>")
       studentMessage.append(studentClose);
       studentMessage.append(studentImg);
       studentMessage.append(studentP);
+      studentMessage.append(source);
+      studentMessage.append(source2)
       studentMessage.append(yuyue);
       $("#sub-content").prepend(studentMessage);
+      if(json['soucreNumber']>1){
+    	  $('.fun_teacher_source2').html(json['soucre'])
+      }else{
+    	  $('.fun_teacher_source2').html("暂无评价");
+      }
+      $('.fun_teacher_source').raty({readOnly: true,score: json['soucre'],number:5,width:260});
       studentMessage.show(400);
       $(".studentMessage .close").click(function(){
   		$(this).parent().hide(400);

@@ -447,24 +447,24 @@ public class ShouYeAction extends BaseAction {
 	        String[] data = rightNow.getTime().toString().split(" ");
 	        if(Integer.parseInt(data[2].toString()) % 2 == 0){
 	        	//奇数
-	        	for(int ii=0;ii<listT.size();ii++){
+        		for(int ii=0;ii<listT2.size();ii++){
 					if(ii%2==0){
 						this.listT2.remove(ii);
 					}
 				}
-				for(int ii=0;ii<listT.size();ii++){
+				for(int ii=0;ii<listT3.size();ii++){
 					if(ii%2==0){
 						this.listT3.remove(ii);
 					}
 				}
 	        }else{
 	        	//哦数
-	        	for(int ii=0;ii<listT.size();ii++){
+	        	for(int ii=0;ii<listT2.size();ii++){
 					if(ii%2==1){
 						this.listT2.remove(ii);
 					}
 				}
-				for(int ii=0;ii<listT.size();ii++){
+				for(int ii=0;ii<listT3.size();ii++){
 					if(ii%2==1){
 						this.listT3.remove(ii);
 					}

@@ -23,7 +23,7 @@ $("#xuesheng-list a").click(function(){
     $.getJSON("index_studentMessage",{id:id},function(json){
       var studentMessage=$("<div class='studentMessage'></div>");
       var studentClose=$("<a class='close' href='javascript:void(0)'></a>");
-      var studentImg=$("<img src='upload/studentlogo/"+json['logo']+"' >");
+      var studentImg=$("<img class='logo' src='upload/studentlogo/"+json['logo']+"' >");
       var studentP=$("<p>姓名："+json['name']+"<br/>性别："+json['sex']+"<br/>年龄："+json['age']+"<br/>电话："+json['telphone']+"<br/>意向科目："+json['lesson']+"<br/>空闲时间："+json['time']+"<br/>期望课时费："+json['money']+"<br/></p>");
       var yuyue=$("<button class='student-yuyue'  onclick='ib_wopen();'>预约</button><button data-id='"+id+"' class='student-yuyue' onclick='openGerenzhuye(this)'>主页</button>")
       studentMessage.append(studentClose);

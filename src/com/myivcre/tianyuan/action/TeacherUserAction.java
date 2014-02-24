@@ -39,7 +39,7 @@ public class TeacherUserAction extends BaseAction {
 	private String post2;
 	private String logo;
 	private String sex;
-
+	private boolean isNew;
 	private TeacherUser teacherUser;
 	private List categoryList;
 	public String list(){
@@ -100,6 +100,7 @@ public class TeacherUserAction extends BaseAction {
 		this.teacherUser.setPost(post);
 		this.teacherUser.setPriority(1);
 		this.teacherUser.setQq(qq);
+		this.teacherUser.setNewHuiYuan(true);
 		this.teacherUser.setHome(home);
 		this.teacherUser.setSex(sex);
 		this.teacherUser.setSoucre(4);
@@ -128,6 +129,12 @@ public class TeacherUserAction extends BaseAction {
 		this.teacherUser=(TeacherUser)this.baseService.get(TeacherUser.class, id);
 		this.teacherUser.setIshuiyuan(false);
 		this.baseService.save(this.teacherUser);
+		return "list";
+	}
+	public String setOld(){
+		this.teacherUser=(TeacherUser)this.baseService.get(TeacherUser.class, id);
+		this.teacherUser.setNewHuiYuan(false);
+		this.baseService.update(this.teacherUser);
 		return "list";
 	}
 	public String getAddress() {
@@ -283,5 +290,17 @@ public class TeacherUserAction extends BaseAction {
 	}
 	public void setLogo(String logo) {
 		this.logo = logo;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public boolean isNew() {
+		return isNew;
+	}
+	public void setNew(boolean isNew) {
+		this.isNew = isNew;
 	}
 }

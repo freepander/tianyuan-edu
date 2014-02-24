@@ -296,6 +296,7 @@ public class ShouYeAction extends BaseAction {
 		this.teacherUser.setDianji(0);
 		this.teacherUser.setIshuiyuan(false);
 		this.teacherUser.setSoucre(4);
+		this.teacherUser.setNewHuiYuan(true);
 		this.teacherUser.setSoucreNumber(1);
 		this.baseService.save(this.teacherUser);
 		this.list=this.baseService.getByHal("from teacheruser t where t.username = '"+username+"' and t.password = '"+password+"'");
@@ -332,6 +333,7 @@ public class ShouYeAction extends BaseAction {
 		this.teacherUser.setDianji(0);
 		this.teacherUser.setIshuiyuan(false);
 		this.teacherUser.setSoucre(4);
+		this.teacherUser.setNewHuiYuan(true);
 		this.teacherUser.setSoucreNumber(1);
 		TeacherCategory category = (TeacherCategory)this.baseService.get(TeacherCategory.class, categoryId);
 		this.teacherUser.setCategory(category);

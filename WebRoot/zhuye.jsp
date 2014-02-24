@@ -58,7 +58,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="sub-content">
     	<s:if test='ad.pic!=""'>
     	<div id="" style="width:460px; height: 144px;position:absolute;top:60px; left:-69px;">
-    		<img src="upload/books/<s:property value="ad.pic"/>" width="100%" height="100%">
+	    	<a href="javascript:openZhucekuang()" style="border:0;">
+	    		<img src="upload/books/<s:property value="ad.pic"/>" width="100%" height="100%">
+	    	</a>
     	</div>
     	</s:if>
     	<a href='javascript:openZhucekuang()' style="display:block;background:url(img/zhuce3.png);width:304px; height:70px;position:absolute;top:61px; right:0px;"></a>

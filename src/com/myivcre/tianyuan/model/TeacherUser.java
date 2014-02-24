@@ -72,6 +72,8 @@ public class TeacherUser {
 	private double soucre;
 	//评分人数
 	private int soucreNumber;
+	//是否是新会员
+	private boolean newHuiYuan;
 	public double getSoucre() {
 		return soucre;
 	}
@@ -245,6 +247,12 @@ public class TeacherUser {
 	}
 	public void setHuiyuannumber(String huiyuannumber) {
 		this.huiyuannumber = huiyuannumber;
+	}
+	public boolean isNewHuiYuan() {
+		return newHuiYuan;
+	}
+	public void setNewHuiYuan(boolean newHuiYuan) {
+		this.newHuiYuan = newHuiYuan;
 	}
 	
 	

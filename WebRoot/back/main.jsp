@@ -58,11 +58,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 	{id:'message_list',text:'留言列表',href:'back/message_list'},
                 	{id:'review_list',text:'教师评论列表',href:'back/review_list'}
                   ]
-            },{
+            }/*,{
             	text:'图书管理',
                 items:[
                 	{id:'book_list',text:'图书列表',href:'back/book_list'},
                 	{id:'bookCategory_list',text:'图书类别列表',href:'back/bookCategory_list'},
+                  ]
+            }*/,{
+            	text:'历年真题',
+                items:[
+                	{id:'inscribes_list',text:'真题列表',href:'back/inscribes_list'},
+                	{id:'inscribesCategory_list',text:'一级类别列表',href:'back/inscribesCategoryOne_list'},
+                	{id:'inscribesCategory_list',text:'二级类别列表',href:'back/inscribesCategoryTwo_list'},
                   ]
             },{
             	text:'首页广告',

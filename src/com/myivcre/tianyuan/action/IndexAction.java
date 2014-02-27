@@ -279,6 +279,7 @@ public class IndexAction extends BaseAction {
 		return "success";
 	}
 	public String zaixianliuyan(){
+		System.out.println("在线留言");
 		return "success";
 	}
 	public List<NewsPicture> getNewspicList() {

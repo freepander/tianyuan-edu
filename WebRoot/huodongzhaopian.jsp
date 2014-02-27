@@ -122,7 +122,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        });
    	function getBook(){
    		var categoryId=$('.huodong-nav ul').find(".active").first().attr("data-regionalId");
-   		console.log(categoryId);
     	$.get("index_bookList",{id: categoryId},function(data) {
     		$(".huodong-body").hide().html(data).show(400,function(){
     			$(".huodong-body").mCustomScrollbar({

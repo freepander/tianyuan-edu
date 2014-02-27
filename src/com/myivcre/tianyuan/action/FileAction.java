@@ -83,6 +83,28 @@ public class FileAction extends ActionSupport {
 		}
 		return null;
 	}
+	public String inscribes() {
+		PrintWriter out = null;
+		try {
+			String filePath = ServletActionContext.getRequest().getRealPath(
+					"/upload/inscribes");
+			out = ServletActionContext.getResponse().getWriter();
+			File path = new File(filePath);
+			if (!path.exists()) {
+				path.mkdirs();
+			}
+			FileUtils.copyFile(uploadify, new File(filePath + "/"
+					+ uploadifyFileName));
+			out.print("success");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (out != null) {
+				out.close();
+			}
+		}
+		return null;
+	}
 	public String teacherLogo() {
 		PrintWriter out = null;
 		try {

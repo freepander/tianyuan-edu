@@ -57,32 +57,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<a class="fun_tanchu_zhuce" href='javascript:openZhucekuang()' style="display:block;background:url(img/zhuce22.png);width:304px; height:70px;position:absolute;top:61px; right:-270px;z-index:10000;"></a>
     	<div class="huodong-nav">
 			<ul>
-			<form id="search" action="search_teacher" method="post" style="float: right;margin-top:10px;margin-right: 40px; z-index: 200000; background:#FF08FC; padding-left: 10px; padding-right: 10px; border-radius: 20px;-webkit-border-radius:20px;-moz-border-radius:20px;height: 34px; line-height: 32px; width: 220px;">
+<!-- 			<form id="search" action="search_teacher" method="post" style="float: right;margin-top:10px;margin-right: 40px; z-index: 200000; background:#FF08FC; padding-left: 10px; padding-right: 10px; border-radius: 20px;-webkit-border-radius:20px;-moz-border-radius:20px;height: 34px; line-height: 32px; width: 220px;">
 	        	<input name="searchContent" type="text"style="width: 100px;margin-top:4px;float:left;background: none; border: 0px solid #FFF; background:#FFF; border-radius: 20px; color: #FF08FC; height: 24px; line-height: 18px; padding-left: 14px; padding-right: 14px;" >
 	        	<input type="submit" value="搜索" style="display:block;margin-top: 4px;float:right;background: none; border: 0px solid #FFF; height: 24px; line-height:18px; color:#FFF; cursor: pointer;">
-        	</form>
-	          <li class="first"><a class="active" data-regionalId="0" href="javascript:void(0);">全部</a></li>
-	          <s:iterator value="bookCateogryList" status="st">
-	          <s:if test="#st.index==bookCateogryList.size()-1">
-	          <li class="last"><a data-regionalId="<s:property value="id" />" href="javascript:void(0);"><s:property value="name" /></a></li>
+        	</form> -->
+	          <li class="first"><a class="active" data-categoryId="0" href="javascript:void(0);">全部</a></li>
+	          <s:iterator value="list" status="st">
+	          <s:if test="#st.index==list.size()-1">
+	          <li class="last"><a data-categoryId="<s:property value="id" />" href="javascript:void(0);"><s:property value="name" /></a></li>
 	          </s:if>
-	          <s:if test="#st.index!=bookCateogryList.size()-1">
-	          <li><a data-regionalId="<s:property value="id" />" href="javascript:void(0);"><s:property value="name" /></a></li>
+	          <s:if test="#st.index!=list.size()-1">
+	          <li><a data-categoryId="<s:property value="id" />" href="javascript:void(0);"><s:property value="name" /></a></li>
 	          </s:if>
 	          </s:iterator>
 	        </ul>
-	        <span style="color: #FFF; float: right; margin-right: 40px; margin-top: 10px;">此类书为推荐类型</span>
+	        <!-- <span style="color: #FFF; float: right; margin-right: 40px; margin-top: 10px;">此类书为推荐类型</span> -->
     	</div>
-    	<div class="huodong-body">
-    	<ul>
-    		<s:iterator value="list">
-    		<li><p><s:property value="name" /></p><img src="upload/books/<s:property value="logo" />"></li>
-    		</s:iterator>
-    	</ul>
-
+    	<div class="huodong-body" id="fun_zhenti_div" style="margin-top:0px;">
+    		
+    		
+    			<script>
+    			$(document).ready(function(){
+    				$('#fun_zhenti_div').load("index_bookList")
+    			})
+    			</script>
+    		
     	</div>
     </div>
-    
+    <div id="xinwen-bg">
+      <div id="xinwen">
+        <a id="xinwen-close" href="javascript:void(0);"></a>
+        <div id="xinwen-content">
+        </div>
+      </div>
+    </div>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script>
   //弹出注册按钮
@@ -121,14 +129,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        	}
        });
    	function getBook(){
-   		var categoryId=$('.huodong-nav ul').find(".active").first().attr("data-regionalId");
+   		var categoryId=$('.huodong-nav ul').find(".active").first().attr("data-categoryId");
     	$.get("index_bookList",{id: categoryId},function(data) {
     		$(".huodong-body").hide().html(data).show(400,function(){
-    			$(".huodong-body").mCustomScrollbar({
-    		          scrollButtons:{
-    		            enable:true
-    		          }
-    		        });
     		});
     	});
    	}
@@ -215,13 +218,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     })
     //去除链接虚框
     $('a').bind('focus',function(){if(this.blur){ this.blur();}});
-    $(document).ready(function(){
-    	$(".huodong-body").mCustomScrollbar({
-    	       scrollButtons:{
-    	         enable:true
-    	       }
-    	     });
-    });
+    
     $('.qiyejianjie-button').click(function(){
     	$('.qiyexinxi').show().animate({'width':455},400,function(){
     		$(this).animate({'height': 455});

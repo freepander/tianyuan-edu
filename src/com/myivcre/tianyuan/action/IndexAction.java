@@ -3,6 +3,7 @@ package com.myivcre.tianyuan.action;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +16,7 @@ import com.alibaba.fastjson.JSON;
 import com.myivcre.tianyuan.model.Activities;
 import com.myivcre.tianyuan.model.Ad;
 import com.myivcre.tianyuan.model.BookCategory;
+import com.myivcre.tianyuan.model.Inscribes;
 import com.myivcre.tianyuan.model.Message;
 import com.myivcre.tianyuan.model.News;
 import com.myivcre.tianyuan.model.NewsPicture;
@@ -55,6 +57,7 @@ public class IndexAction extends BaseAction {
 	private List<BookCategory> bookCateogryList;
 	//book
 	private long categoryId;
+	private Inscribes inscribes;
 	//zhao you hui
 	private Activities activicies;
 	public String zhuye(){
@@ -201,11 +204,63 @@ public class IndexAction extends BaseAction {
 	}
 	public String bookList(){
 		if(id==0){
-			this.list=this.baseService.getByHal("from book");
+			this.list=new ArrayList();
+			try {
+				this.pageModel=this.baseService.getPageModel("inscribes", pageNum, 6,orderby,q,a);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}else {
-			this.list=this.baseService.getByHal("from book b where b.category.id="+id);
+			if(this.categoryId!=0){
+				this.list=this.baseService.getByHal("from inscribescategorytwo where category.id="+id);
+				try {
+					q.add("category.category.id = ?");
+					a.add(id);
+					q.add("category.id = ?");
+					a.add(categoryId);
+					orderby.add("id desc");
+					this.pageModel=this.baseService.getPageModel("inscribes", pageNum, 6,orderby,q,a);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else{
+				this.list=this.baseService.getByHal("from inscribescategorytwo where category.id="+id);
+				try {
+					q.add("category.category.id = ?");
+					a.add(id);
+					this.pageModel=this.baseService.getPageModel("inscribes", pageNum, 6,orderby,q,a);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 		return "success";
+	}
+	/**
+	 * 试题浏览
+	 * @return
+	 */
+	public String getInscribesById(){
+		this.inscribes=(Inscribes)this.baseService.get(Inscribes.class, id);
+		String json=JSON.toJSONString(this.inscribes, true);
+		try {
+			json=new String(json.getBytes("utf-8"),"utf-8");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		HttpServletResponse response=ServletActionContext.getResponse();
+		try {
+			response.setCharacterEncoding("utf-8");
+			OutputStream out=response.getOutputStream();
+			out.write(json.getBytes("utf-8"));
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	public String zhaoxuesheng(){
 		this.studentCategoryList=this.baseService.getByHal("from studentcategory");
@@ -274,8 +329,7 @@ public class IndexAction extends BaseAction {
 		return null;
 	}
 	public String huodongzhaopian(){
-		this.bookCateogryList=this.baseService.getByHal("from bookcategory");
-		this.list=this.baseService.getByHal("from book");
+		this.list=this.baseService.getByHal("from inscribescategoryone");
 		return "success";
 	}
 	public String zaixianliuyan(){

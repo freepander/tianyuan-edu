@@ -67,6 +67,8 @@
 			<result name="gerenteacher">/gerenteacher.jsp</result>
 			<!-- 评论 -->
 			<result name="reviewsList">/reviewList.jsp</result>
+			<!-- 往年真题 -->
+			<result name="wanglianzhenti">/huodongzhaopian.jsp</result>
 		</action>
 	</package>
 	

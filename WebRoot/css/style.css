@@ -259,9 +259,9 @@ object{display:none;}
 .huodong-nav a:hover{color: #fff;}
 .huodong-body{position: absolute; left: -150px; display: block; height: 420px; width: 920px; margin-top: 20px;}
 .houdong-body ul{display: block;}
-.huodong-body li{width: 150px; float: left; padding: 10px; height: 240px; overflow: hidden; display: block;  }
+/*.huodong-body li{width: 150px; float: left; padding: 10px; height: 240px; overflow: hidden; display: block;  }
 .huodong-body p{display: block; color: #FFF; font-size: 18px; text-align: center; height: 42px; overflow: hidden;}
-.huodong-body img{width: 150px;}
+.huodong-body img{width: 150px;}*/
 
 /*  评分插件  */
 .service_rating{margin-left:0;margin-right:8px;margin-bottom:8px;}

@@ -31,6 +31,8 @@ public class StudentUserAction extends BaseAction {
 	private String recommend;
 	private boolean newcome;
 	private Date date;
+	private int[] idList;
+	private String idList2;
 	public String list(){
 		this.list = this.baseService.getByHal("from studentuser order by id desc");		
 		return "success";
@@ -69,6 +71,21 @@ public class StudentUserAction extends BaseAction {
 	public String delete(){
 		this.studentUser=(StudentUser) this.baseService.get(StudentUser.class, id);
 		this.baseService.delete(this.studentUser);
+		return "list";
+	}
+	public String deletes(){
+		System.out.println("deletes");
+		System.out.println(idList2);
+		idList2=idList2.replace(" ", "");
+		System.out.println("---"+idList2);
+		String[] ss=idList2.split(",");
+		System.out.println(ss.length);
+		for (int i=0;i<ss.length;i++) {
+			System.out.println(ss[i]);
+			long ids=Long.parseLong(ss[i]);
+			StudentUser stu=(StudentUser) this.baseService.get(StudentUser.class, ids);
+			this.baseService.delete(stu);
+		}
 		return "list";
 	}
 	public String introduce(){
@@ -230,5 +247,30 @@ public class StudentUserAction extends BaseAction {
 	public void setRecommend(String recommend) {
 		this.recommend = recommend;
 	}
+	public boolean isNewcome() {
+		return newcome;
+	}
+	public void setNewcome(boolean newcome) {
+		this.newcome = newcome;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public int[] getIdList() {
+		return idList;
+	}
+	public void setIdList(int[] idList) {
+		this.idList = idList;
+	}
+	public String getIdList2() {
+		return idList2;
+	}
+	public void setIdList2(String idList2) {
+		this.idList2 = idList2;
+	}
+	
 	
 }

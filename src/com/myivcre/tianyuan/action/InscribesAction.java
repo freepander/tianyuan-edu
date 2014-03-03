@@ -14,8 +14,7 @@ public class InscribesAction extends BaseAction {
 	private String content;
 	private Inscribes inscribes;
 	private long categoryId;
-	
-	
+	private String doc;
 	
 	public String list(){
 		try {
@@ -41,6 +40,7 @@ public class InscribesAction extends BaseAction {
 		this.inscribes.setContent(content);
 		this.inscribes.setLogo(logo);
 		this.inscribes.setCategory(two);
+		this.inscribes.setDoc(doc);
 		this.baseService.update(this.inscribes);
 		return "list";
 	}
@@ -56,6 +56,7 @@ public class InscribesAction extends BaseAction {
 		this.inscribes.setContent(content);
 		this.inscribes.setLogo(logo);
 		this.inscribes.setCategory(two);
+		this.inscribes.setDoc(doc);
 		this.baseService.save(this.inscribes);
 		return "list";
 	}
@@ -88,6 +89,12 @@ public class InscribesAction extends BaseAction {
 	}
 	public void setCategoryId(long categoryId) {
 		this.categoryId = categoryId;
+	}
+	public String getDoc() {
+		return doc;
+	}
+	public void setDoc(String doc) {
+		this.doc = doc;
 	}
 
 

@@ -308,7 +308,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	$('#index').hide();
             $('#index-background').hide();
             $('#content').load('index_huodongzhaopian').show();
-            $('title').html("天源教育-精品书城");
+            $('title').html("天源教育-历年真题");
         }else if(window.location.hash=='#xinxi'){
         	$('#index').hide();
         	$('#index-background').hide();

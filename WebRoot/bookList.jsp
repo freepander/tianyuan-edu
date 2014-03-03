@@ -23,11 +23,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </s:if>
     		<div id="fun_zhenti_div" style="margin-top:34px;color:#FFF;">
     			<s:iterator value="pageModel.objects">
-					<div class="fun_tanchu_artivities" data-id="<s:property value="id"/>" style="float:left;width:296px;margin-right:10px; height:140px; margin-bottom:16px; cursor: pointer;">
+					<div  data-id="<s:property value="id"/>" style="float:left;width:296px;margin-right:10px; height:140px; margin-bottom:16px; cursor: pointer;">
+					<a href="index_showInscribes?id=<s:property value="id"/>" target="_blank" style="color:#fff; border:0;">
 						<img src="upload/inscribes/<s:property value="logo"/>" style="float:left; margin-right:10px;width:160px; height:110px;" >
 						<div style="height:110px;">
 							<p style="line-height:20px;overflow:hidden; "><s:property value="name"/></p>
 						</div>
+					</a>
 					</div>
 					</s:iterator>
 					<div style="clear:both;"></div>

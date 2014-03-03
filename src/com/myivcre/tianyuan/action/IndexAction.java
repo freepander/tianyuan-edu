@@ -262,6 +262,10 @@ public class IndexAction extends BaseAction {
 		}
 		return null;
 	}
+	public String showInscribes(){
+		this.inscribes=(Inscribes)this.baseService.get(Inscribes.class, id);
+		return "success";
+	}
 	public String zhaoxuesheng(){
 		this.studentCategoryList=this.baseService.getByHal("from studentcategory");
 		this.studentList=this.baseService.getByHal("from studentuser s where s.category!=null order by state desc");
@@ -459,6 +463,18 @@ public class IndexAction extends BaseAction {
 	}
 	public void setAd(Ad ad) {
 		this.ad = ad;
+	}
+	public Inscribes getInscribes() {
+		return inscribes;
+	}
+	public void setInscribes(Inscribes inscribes) {
+		this.inscribes = inscribes;
+	}
+	public Activities getActivicies() {
+		return activicies;
+	}
+	public void setActivicies(Activities activicies) {
+		this.activicies = activicies;
 	}
 
 	

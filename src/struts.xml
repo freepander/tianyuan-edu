@@ -5,7 +5,7 @@
 	
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
-	
+	<constant name="struts.multipart.maxSize" value="90000000"/>
     <package name="login" namespace="/login" extends="struts-default">
     	<global-results>
 			<result name="login">/back/login.jsp</result>

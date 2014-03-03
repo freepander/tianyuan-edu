@@ -31,6 +31,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		   </div>
          </div>
          <div class="control-group">
+           <label class="control-label"><s>*</s>附件：</label>
+           <div class="controls">
+           	<input id="doc" name="doc" value="<s:property value="inscribes.doc" />" class="input-normal control-text"  type="text" style="width:500px;" />
+	  		<input type="button" value="点击上传" onclick="path2.click()">
+			<input type="file" name="uploadify" style="display:none;" id="path2" onchange="upload_logo2(this)">
+		   </div>
+         </div>
+         <div class="control-group">
 	<label class="control-label"><s>*</s>所属类别</label>
 	<div class="controls">
 		<select name="categoryId">
@@ -64,6 +72,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    		url:'file_inscribes',
 	    		secureuri:false,
 	    		fileElementId:'path',
+	    		
+	    		data:{uploadifyFileName:s_name2},
+	    		beforeSend:function(){
+	    			
+	    		},
+	    		success: function(){
+	    			alert("上传成功"); 
+	    		}
+	    	});
+	    	return false;
+	    }
+	    function upload_logo2(a){
+	    	var s_name=$(a).val();
+	    	var s_names=s_name.split("\\");
+	    	var s_name2=s_names[s_names.length-1];
+	    	$('#doc').val(s_name2);
+	    	$.ajaxFileUpload({
+	    		url:'file_inscribes',
+	    		secureuri:false,
+	    		fileElementId:'path2',
 	    		
 	    		data:{uploadifyFileName:s_name2},
 	    		beforeSend:function(){

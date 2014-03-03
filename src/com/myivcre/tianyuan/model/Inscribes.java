@@ -21,6 +21,8 @@ public class Inscribes {
 	private String content;
 	@ManyToOne
 	private InscribesCategoryTwo category;
+	//附件地址
+	private String doc;
 	public long getId() {
 		return id;
 	}
@@ -50,6 +52,12 @@ public class Inscribes {
 	}
 	public void setCategory(InscribesCategoryTwo category) {
 		this.category = category;
+	}
+	public String getDoc() {
+		return doc;
+	}
+	public void setDoc(String doc) {
+		this.doc = doc;
 	}
 	
 	

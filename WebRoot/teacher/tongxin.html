@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>佟鑫</title>
+	<link rel="stylesheet" type="text/css" href="css/skrollr.css" />
+	<script type="text/javascript" src="js/skrollr.min.js"></script>
+	<style type="text/css">
+	/*  base css  */
+	body{background-color: #EE7625;}
+	*{margin:0;padding: 0;}
+	#loading{position: absolute; top: 0; left: 0; width: 100%; height: 100%;  z-index: 1800; background:#fff;}
+	#loading img{width: 85px; height: 85px; margin: auto; display: block; margin-top: 300px; }
+	#back{position: fixed; bottom: 0; right: 0; width: 100px; height: 70px; background-image: url('img/back_4.png'); z-index:1000;}
+	.yuyue{width: 85px; height: 54px; background: #FFF; border-bottom: 5px solid #A35524; color: #EE7625; line-height: 54px; font-size: 24px; text-align: center; text-decoration: none;}
+	#tianyuan{display: block; width: 100px; height: 50px; margin-left: auto; margin-right: auto; background: url('img/logo.png'); z-index: 800;}
+	</style>
+</head>
+<body>
+	<div id="loading">
+      <img src="img/loading4.gif" />
+    </div>
+    <img src="img/tongxin/bg1.jpg" style="width:100%;"
+    	data-1="top:0px; left: 0px;"
+    	data-700="top:-200px;">
+    <img src="img/tongxin/sucai1.png"
+    	data-1="top:102px; left: 149px;">
+    <img src="img/tongxin/wenzi1.png"
+    	data-1="top:29px; left:430px;"
+    	data-700="top:-700px;">	
+    <img src="img/tongxin/bg2.jpg" style="width:100%;"
+    	data-1="top:700px; left:0px;"
+    	data-700="top: 0px;"
+    	data-1000=""
+    	data-1700="top:-200px;">
+    <div style="width: 100%;"
+    	data-1="top:1700px;left:0px;"
+    	data-700="top:20px;"
+    	data-1000=""
+    	data-1700="top:-700px;">
+    	<img src="img/tongxin/wenzi2.png" style="display:block;margin-left:auto;margin-right:auto;">
+    </div>
+    <img src="img/tongxin/bg3.jpg" style="width:100%;"
+    	data-1="top:1700px; left:0px;"
+    	data-700="top:700px;"
+    	data-1000=""
+    	data-1700="top:0px;">
+    <div style="width:100%;"
+    	data-1="top:1700px; left:0px;"
+    	data-700="top:1700px;"
+    	data-1000=""
+    	data-1700="top:10px;">
+    	<img src="img/tongxin/wenzi3.png" style="display:block;margin-left:auto;margin-right:auto;">
+    </div>
+    <div style="width: 100%; height: 50px; position: absolute; top: 0; left: 0; z-index: 1000;">
+    	<a id="tianyuan" href="../" ></a>
+    	<a href="javascript:ib_wopen();" class="yuyue"
+		data-1="left: 80px; top: 0px;">预约</a>
+    </div>
+	
+    <script src="js/jquery.js"></script>
+	<script type="text/javascript">
+	$(window).load(function(){
+		skrollr.init();
+		$('#loading').hide(400);
+	});
+    $('a').bind('focus',function(){if(this.blur){ this.blur();}});
+    $("#left").click(function(){
+    	var a=$(document).scrollTop()
+    	if(a==0){
+    		return ;
+    	}else if(a<=1000){
+    		$(document).scrollTop(0);
+    		return;
+    	}else if(a<=2500){
+    		$(document).scrollTop(1000);
+    		return;
+    	}
+    });
+    $("#right").click(function(){
+    	var a=$(document).scrollTop()
+    	if(a>=0&&a<1000){
+    		$(document).scrollTop(1000);
+    	}else if(a>=1000&&a<2500){
+    		$(document).scrollTop(2500);
+    	}else if(a==2500){
+    		return;
+    	}
+    });
+    
+	</script>
+	<a id="ibangkf" href="http://www.ibangkf.com">网站客服</a>
+	<script type="text/javascript" src="http://c.ibangkf.com/i/c-tianyuantest.js"></script>
+	<div style="display:none;">
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Faec411cb4885624a34c7f9b3fa55c0a2' type='text/javascript'%3E%3C/script%3E"));
+</script>
+    </div>
+    
+</body>
+</html>

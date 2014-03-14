@@ -206,6 +206,7 @@ public class IndexAction extends BaseAction {
 		if(id==0){
 			this.list=new ArrayList();
 			try {
+				orderby.add("id desc");
 				this.pageModel=this.baseService.getPageModel("inscribes", pageNum, 6,orderby,q,a);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -230,6 +231,7 @@ public class IndexAction extends BaseAction {
 				try {
 					q.add("category.category.id = ?");
 					a.add(id);
+					orderby.add("id desc");
 					this.pageModel=this.baseService.getPageModel("inscribes", pageNum, 6,orderby,q,a);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -306,6 +308,7 @@ public class IndexAction extends BaseAction {
 	}
 	public String artivitiesList(){
 		try {
+			orderby.add("id desc");
 			this.pageModel=this.baseService.getPageModel("activities", pageNum, 6, orderby, q,a);
 		} catch (Exception e) {
 			e.printStackTrace();

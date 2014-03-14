@@ -11,6 +11,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.myivcre.tianyuan.model.Organization;
+import com.myivcre.tianyuan.model.TeacherUser;
 
 
 public class OrganizationLook extends TimerTask {
@@ -31,6 +32,22 @@ public class OrganizationLook extends TimerTask {
 				Organization o=(Organization)list.get(i);
 				o.setLook(0);
 				ht.update(o);
+			}
+			list=ht.find("from teacheruser");
+			for(int i=0;i<list.size();i++){
+				TeacherUser t=(TeacherUser)list.get(i);
+				t.setDianji(1);
+				ht.update(t);
+			}
+		}else if(hour==22){
+			HibernateTemplate ht=new HibernateTemplate(sessionFactory);
+			List list=ht.find("from teacheruser");
+			for(int i=0;i<list.size();i++){
+				TeacherUser t=(TeacherUser)list.get(i);
+				if(t.isIshuiyuan()){
+					t.setHuiYuanDay(t.getHuiYuanDay()-1);
+					ht.update(t);
+				}
 			}
 		}
 	}

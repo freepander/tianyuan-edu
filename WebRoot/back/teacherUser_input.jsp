@@ -88,6 +88,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <div class="controls"><input class="input-normal control-text" type="text" name="dianji" value="<s:property value="teacherUser.dianji"/>" ></div>
          </div>
          <div class="control-group">
+           <label class="control-label">剩余会员天数：</label>
+           <div class="controls"><input class="input-normal control-text" type="text" name="huiYuanDay" value="<s:property value="teacherUser.huiYuanDay"/>" ></div>
+         </div>
+         <div class="control-group">
            <label class="control-label">教师头像：</label>
            <div class="controls">
            	<input id="pic" name="logo" value="<s:property value="teacherUser.logo" />" class="input-normal control-text"  type="text" style="width:500px;" />

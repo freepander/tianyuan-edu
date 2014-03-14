@@ -34,7 +34,7 @@ public class NewsAction extends BaseAction {
 		return "list";
 	}
 	public String list(){
-		this.list=this.baseService.getByHal("from news");
+		this.list=this.baseService.getByHal("from news order by id desc");
 		return "success";
 	}
 	public String update(){

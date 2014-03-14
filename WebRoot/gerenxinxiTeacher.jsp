@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		
     		<s:if test="teacherUser.ishuiyuan">
     			<img src="img/teachervip.png">
-    			会员编号：<s:property value="teacherUser.huiyuannumber"/>
+    			会员编号：<s:property value="teacherUser.huiyuannumber"/><br>剩余<s:property value="teacherUser.huiYuanDay"/>天到期。
     		</s:if>
     	</div>
     	<div class="gerenxinxi-div" style="width:300px;margin-left:70px;">

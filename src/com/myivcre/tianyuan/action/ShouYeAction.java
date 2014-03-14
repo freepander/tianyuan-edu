@@ -298,6 +298,7 @@ public class ShouYeAction extends BaseAction {
 		this.teacherUser.setSoucre(4);
 		this.teacherUser.setNewHuiYuan(true);
 		this.teacherUser.setSoucreNumber(1);
+		this.teacherUser.setHuiYuanDay(0);
 		this.baseService.save(this.teacherUser);
 		this.list=this.baseService.getByHal("from teacheruser t where t.username = '"+username+"' and t.password = '"+password+"'");
 		this.teacherUser=(TeacherUser)this.list.get(0);
@@ -347,6 +348,7 @@ public class ShouYeAction extends BaseAction {
 		this.teacherUser.setPolitical(political);
 		this.teacherUser.setPost2(post2);
 		this.teacherUser.setRecommend(recommend);
+		this.teacherUser.setHuiYuanDay(0);
 		this.baseService.save(this.teacherUser);
 		this.list=this.baseService.getByHal("from teacheruser t where t.username = '"+username+"' and t.password = '"+password+"'");
 		this.teacherUser=(TeacherUser)this.list.get(0);

@@ -74,6 +74,8 @@ public class TeacherUser {
 	private int soucreNumber;
 	//是否是新会员
 	private boolean newHuiYuan;
+	//剩余会员天数
+	private int huiYuanDay;
 	public double getSoucre() {
 		return soucre;
 	}
@@ -253,6 +255,12 @@ public class TeacherUser {
 	}
 	public void setNewHuiYuan(boolean newHuiYuan) {
 		this.newHuiYuan = newHuiYuan;
+	}
+	public int getHuiYuanDay() {
+		return huiYuanDay;
+	}
+	public void setHuiYuanDay(int huiYuanDay) {
+		this.huiYuanDay = huiYuanDay;
 	}
 	
 	

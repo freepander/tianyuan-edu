@@ -16,7 +16,7 @@ public class NewsPicAction extends BaseAction {
 	private String pic;
 	private NewsPicture newspic;
 	public String list(){
-		this.list=this.baseService.getByHal("from newspicture");
+		this.list=this.baseService.getByHal("from newspicture order by id desc");
 		return "success";
 	}
 	public String add(){

@@ -42,8 +42,9 @@ public class TeacherUserAction extends BaseAction {
 	private boolean isNew;
 	private TeacherUser teacherUser;
 	private List categoryList;
+	private int huiYuanDay;
 	public String list(){
-		this.list=this.baseService.getByHal("from teacheruser");
+		this.list=this.baseService.getByHal("from teacheruser order by id desc");
 		return "success";
 	}
 	public String introduce(){
@@ -83,6 +84,7 @@ public class TeacherUserAction extends BaseAction {
 		this.teacherUser.setPost2(post2);
 		this.teacherUser.setAddress(address);
 		this.teacherUser.setLogo(logo);
+		this.teacherUser.setHuiYuanDay(huiYuanDay);
 		this.baseService.update(this.teacherUser);
 		return "list";
 	}
@@ -112,6 +114,7 @@ public class TeacherUserAction extends BaseAction {
 		this.teacherUser.setPost2(post2);
 		this.teacherUser.setAddress(address);
 		this.teacherUser.setLogo(logo);
+		this.teacherUser.setHuiYuanDay(0);
 		this.baseService.save(this.teacherUser);
 		return "list";
 	}
@@ -187,6 +190,12 @@ public class TeacherUserAction extends BaseAction {
 	}
 	public String getMoney() {
 		return money;
+	}
+	public int getHuiYuanDay() {
+		return huiYuanDay;
+	}
+	public void setHuiYuanDay(int huiYuanDay) {
+		this.huiYuanDay = huiYuanDay;
 	}
 	public void setMoney(String money) {
 		this.money = money;

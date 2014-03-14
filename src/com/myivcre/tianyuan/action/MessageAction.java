@@ -12,7 +12,7 @@ public class MessageAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	private Message messages;
 	public String list(){
-		this.list=this.baseService.getByHal("from message");
+		this.list=this.baseService.getByHal("from message order by id desc");
 		return "success";
 	}
 	

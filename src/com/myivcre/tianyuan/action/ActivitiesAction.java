@@ -17,6 +17,7 @@ public class ActivitiesAction extends BaseAction {
 	private Activities activities;
 	public String list(){
 		try {
+			orderby.add("id desc");
 			this.pageModel=this.baseService.getPageModel("activities", pageNum, 6, orderby, q,a);
 		} catch (Exception e) {
 			e.printStackTrace();

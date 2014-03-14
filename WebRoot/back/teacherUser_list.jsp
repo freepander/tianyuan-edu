@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <th>名称</th>
           <th>职位</th>
           <th>科目</th>
-          <th>是否是会员/会员编号</th>
+          <th>会员编号/剩余天数</th>
           <th>操作</th>
         </tr>
       </thead>
@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <td><s:property value="name"/></td>
           <td><s:property value="post"/></td>
           <td><s:property value="lesson"/></td>
-          <td><s:if test="ishuiyuan"><s:property value="huiyuannumber"/></s:if><s:if test="!ishuiyuan">否</s:if></td>
+          <td><s:if test="ishuiyuan"><s:property value="huiyuannumber"/>/<s:property value="huiYuanDay"/></s:if><s:if test="!ishuiyuan">否</s:if></td>
           <td>
           	<a href="back/teacherUser_introduce?id=<s:property value="id"/>" class="button button-primary">详细信息</a>
           	<a href="back/teacherUser_delete?id=<s:property value="id"/>" class="button button-danger">删除</a>

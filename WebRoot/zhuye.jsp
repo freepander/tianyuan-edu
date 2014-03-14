@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="sub-content">
     	<s:if test='ad.pic!=""'>
     	<div id="" style="width:460px; height: 144px;position:absolute;top:60px; left:-69px;">
-	    	<a href="javascript:openZhucekuang()" style="border:0;">
+	    	<a target="_blank" href="<s:property value="ad.url"/>" style="border:0;">
 	    		<img src="upload/books/<s:property value="ad.pic"/>" width="100%" height="100%">
 	    	</a>
     	</div>
@@ -202,12 +202,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     $('#sub-circle6').click(function() {
       $('#content').hide().html("").load('index_huodongzhaopian').show(400);
       location.hash="zhaopian";
-      $('title').html("天源教育-在线留言");
+      $('title').html("天源教育-历年真题");
       return false;
     });
     $('#sub-circle7').click(function() {
       $('#content').hide().html("").load('index_zaixianliuyan').show(400);
       location.hash="liuyan";
+      $('title').html("天源教育-在线留言");
       return false;
     });
     //新闻内容关闭

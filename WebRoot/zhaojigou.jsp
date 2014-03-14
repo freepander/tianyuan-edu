@@ -214,7 +214,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     $('#sub-circle6').click(function() {
       $('#content').hide().load('index_huodongzhaopian').show(400);
       location.hash="zhaopian";
-      $('title').html("天源教育-精品书城");
+      $('title').html("天源教育-历年真题");
       return false;
     });
     $('#sub-circle7').click(function() {

@@ -17,8 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </ul>
 </div>
 <ul id="body">
-	<s:iterator value="teacherList2">
-		<li>
+	<s:iterator value="teacherList2" status="st">
+		<li class="fun_click" data-dianji="<s:property value="soucre"/>" data-liulanliang="<s:property value="dianji"/>" data-moren="<s:property value="#st.index"/>">
       <a href="javascript:void(0);" data-id="<s:property value="id"/>" >
         <img src="upload/teacherlogo/<s:property value="logo"/>">
         <p>姓名：<s:property value="name"/><br>学历：<s:property value="post"/><br>科目：<s:property value="lesson"/><br></p>
@@ -26,11 +26,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <s:if test="ishuiyuan"><img src="img/state.png" style="float:right; width: 20px; height: 20px; margin-top: -20px;"></s:if>
     </li>
 	</s:iterator>
-	<div style="height: 100px; width: 100%; "></div>
+	
 </ul>
 <script>
-
-$("#laoshi-list #body a").click(function(){
+$("#laoshi-list #body a").die('click')
+$("#laoshi-list #body a").live('click',function(){
 	$('.studentMessage').hide();
 	var id=$(this).data('id');
 	$.get("shouye_teacherLookAdd?id="+id);

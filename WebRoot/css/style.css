@@ -197,6 +197,9 @@ body {font-family: 黑体 ;  background-color: #000; background-image: url('../i
 #laoshi-list #body a:hover{color: #D45E04;}
 #laoshi-list #body img{float: left; width: 80px; height: 80px; border: none;}
 #laoshi-list #body p{float: right; width: 94px; display: block;margin-top: 10px; line-height: 16px; font-size: 14px;}
+#teacher_paixu{width:60px;height:130px;position:absolute;top:341px;left:-210px;color:#FFF; text-align:right;}
+#teacher_paixu .active{line-height:24px;background:#D45E04;border-radius: 15px 0 0 15px;cursor:pointer;}
+#teacher_paixu p{cursor:pointer; margin-top:4px;display:block;}
 /*  主页   */
 #news-list{position: absolute; left: -100px; top: 230px; display: block; width: 360px; z-index: 500; height: 220px;}
 #news-list span{display: block; width: 110px; height: 40px; background-image: url('../img/news_title.png'); margin-bottom: 10px;}

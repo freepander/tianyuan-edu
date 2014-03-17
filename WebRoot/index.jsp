@@ -169,7 +169,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
 
   	<!--  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
-    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
   	<script type="text/javascript" src="http://c.ibangkf.com/i/c-tianyuantest.js"></script>
   	<script type="text/javascript" src="js/jquery.fxTab.js"></script>
   	<script type="text/javascript" src="js/jquery.cookie.js"></script>

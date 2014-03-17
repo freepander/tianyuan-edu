@@ -75,13 +75,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
       <a href='javascript:void(0);' id="teacher-qiehuan-left" style="position:absolute; top: 180px; left: -175px; display:block; width: 40px; height: 70px; background:url(img/qiehuan_left.png); z-index: 1000;"></a>
       <a href='javascript:void(0);' id="teacher-qiehuan-right" style="position:absolute; top: 180px; left:710px; display:block; width: 40px; height: 70px; background:url(img/qiehuan_right.png); z-index: 1000;"></a>
-      <div id="tishi-tanchu" style="width: 153px; height: 153px; background:url(img/tishi_laoshi.png);position:absolute; top: -14px; left: 30px;"></div>
-      <!-- 
-      <div style="width:60px;height:130px;position:absolute;top:341px;left:-210px;color:#FFF; text-align:right;">
-      	<p style="line-height:24px;background:#D45E04;border-radio-left:15px;">默认</p>
-      	<p>评分</p>
+      <!-- <div id="tishi-tanchu" style="width: 153px; height: 153px; background:url(img/tishi_laoshi.png);position:absolute; top: -14px; left: 30px;"></div> -->
+ 
+      <div id="teacher_paixu">
+      	<p id="teacher_paixu_moren" class="active">默认</p>
+      	<p id="teacher_paixu_pingfenj">评分</p>
+      	<p id="teacher_paixu_fangwenliangj">访问量</p>
       </div>
-       -->
+      
       <div id="laoshi-list">
       	<div id="list-border">
         <ul id="top">
@@ -94,6 +95,57 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
     </div>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript">
+    $('#teacher_paixu_moren').click(function(){
+    	var list=$('#laoshi-list #body .mCSB_container').children();
+    	list.sort(function(a,b){
+    		return $(a).attr('data-moren')-$(b).attr('data-moren')
+    	})
+    	$('#laoshi-list #body .mCSB_container').html(list)
+    	$(this).parent().children().removeClass('active')
+    	$(this).addClass('active')
+    })
+    $('#teacher_paixu_pingfenj').live('click',function(){
+    	var list=$('#laoshi-list #body .mCSB_container').children();
+    	list.sort(function(a,b){
+    		return $(b).attr('data-dianji')-$(a).attr('data-dianji')
+    	})
+    	$('#laoshi-list #body .mCSB_container').html(list)
+    	$(this).parent().children().removeClass('active')
+    	$(this).addClass('active')
+    	$(this).attr({id:"teacher_paixu_pingfens"})
+    })
+    $('#teacher_paixu_pingfens').live('click',function(){
+    	var list=$('#laoshi-list #body .mCSB_container').children();
+    	list.sort(function(a,b){
+    		return $(a).attr('data-dianji')-$(b).attr('data-dianji')
+    	})
+    	$('#laoshi-list #body .mCSB_container').html(list)
+    	$(this).parent().children().removeClass('active')
+    	$(this).addClass('active')
+    	$(this).attr({id:"teacher_paixu_pingfenj"})
+    })
+    $('#teacher_paixu_fangwenliangj').live('click',function(){
+    	var list=$('#laoshi-list #body .mCSB_container').children();
+    	list.sort(function(a,b){
+    		return $(b).attr('data-liulanliang')-$(a).attr('data-liulanliang')
+    	})
+    	$('#laoshi-list #body .mCSB_container').html(list)
+    	$(this).parent().children().removeClass('active')
+    	$(this).addClass('active')
+    	$(this).attr({id:"teacher_paixu_fangwenliangs"})
+    })
+    $('#teacher_paixu_fangwenliangs').live('click',function(){
+    	var list=$('#laoshi-list #body .mCSB_container').children();
+    	list.sort(function(a,b){
+    		return $(a).attr('data-liulanliang')-$(b).attr('data-liulanliang')
+    	})
+    	$('#laoshi-list #body .mCSB_container').html(list)
+    	$(this).parent().children().removeClass('active')
+    	$(this).addClass('active')
+    	$(this).attr({"id":"teacher_paixu_fangwenliangj"})
+    })
+    </script>
     <script>
   //弹出注册按钮
     $('.fun_tanchu_zhuce').mouseover(function(){
@@ -176,6 +228,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	}
     });
     function getTeacherList(){
+    	$('#teacher_paixu').html('<p id="teacher_paixu_moren" class="active">默认</p><p id="teacher_paixu_pingfenj">评分</p><p id="teacher_paixu_fangwenliangj">访问量</p>')
     	var id=$('#top').find(".active").first().attr("data-id");
     	$.get("index_teacherList",{id: id},function(data) {
     		$("#laoshi-list").hide().html(data).show(400,function(){

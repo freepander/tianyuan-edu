@@ -46,6 +46,9 @@ public class OrganizationLook extends TimerTask {
 				TeacherUser t=(TeacherUser)list.get(i);
 				if(t.isIshuiyuan()){
 					t.setHuiYuanDay(t.getHuiYuanDay()-1);
+					if(t.getHuiYuanDay()==0){
+						t.setIshuiyuan(false);
+					}
 					ht.update(t);
 				}
 			}

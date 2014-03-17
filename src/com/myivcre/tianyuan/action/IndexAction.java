@@ -189,17 +189,23 @@ public class IndexAction extends BaseAction {
 	public String zhaolaoshi(){
 		this.teacherCategoryList=this.baseService.getByHal("from teachercategory");
 		this.teacherList=this.baseService.getByHal("from teacher");
-		this.teacherList2=this.baseService.getByHal("from teacheruser t where t.category!=null");
+		List l_teachersList=this.baseService.getByHal("from teacheruser t where t.category!=null and t.ishuiyuan=false");
+		this.teacherList2=this.baseService.getByHal("from teacheruser t where t.ishuiyuan=true");
+		this.teacherList2.addAll(l_teachersList);
 		return "success";
 	}
 	public String teacherList(){
 		if(id==0){
 			this.teacherList=this.baseService.getByHal("from teacher");
-			this.teacherList2=this.baseService.getByHal("from teacheruser t where t.category!=null");
+			this.teacherList2=this.baseService.getByHal("from teacheruser t where t.category!=null and t.ishuiyuan=true");
+			List l_teacherList=this.baseService.getByHal("from teacheruser t where t.category!=null and t.ishuiyuan=false");
+			this.teacherList2.addAll(l_teacherList);
 			return "success";
 		}
 		this.teacherList=this.baseService.getByHal("from teacher t where t.category.id= "+id);
-		this.teacherList2=this.baseService.getByHal("from teacheruser t where t.category.id="+id);
+		this.teacherList2=this.baseService.getByHal("from teacheruser t where t.category.id="+id+" and t.ishuiyuan=true");
+		List l_teacherList=this.baseService.getByHal("from teacheruser t where t.category.id="+id+" and t.ishuiyuan=false");
+		this.teacherList2.addAll(l_teacherList);
 		return "success";
 	}
 	public String bookList(){

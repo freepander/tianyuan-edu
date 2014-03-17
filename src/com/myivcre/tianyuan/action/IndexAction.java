@@ -60,12 +60,20 @@ public class IndexAction extends BaseAction {
 	private Inscribes inscribes;
 	//zhao you hui
 	private Activities activicies;
+	/**
+	 * 显示主页
+	 * @return
+	 */
 	public String zhuye(){
 		this.newsCategoryList=this.baseService.getByHal("from newscategory");
 		this.ad=(Ad)this.baseService.get(Ad.class, 1);
 		this.newspicList=this.baseService.getByHal("from newspicture");
 		return "success";
 	}
+	/**
+	 * 根据类别获得新闻列表
+	 * @return
+	 */
 	public String getNewsByCategoryId(){
 		if(id!=0){
 			try {
@@ -88,6 +96,10 @@ public class IndexAction extends BaseAction {
 		}
 		return "newsList";
 	}
+	/**
+	 * 根据新闻id获得新闻内容
+	 * @return
+	 */
 	public String getNewsById(){
 		News news=(News) this.baseService.get(News.class, id);
 		String json=JSON.toJSONString(news, true);
@@ -107,6 +119,10 @@ public class IndexAction extends BaseAction {
 		}
 		return null;
 	}
+	/**
+	 * 根据id获得图片新闻内容
+	 * @return
+	 */
 	public String getNewspicById(){
 		NewsPicture news=(NewsPicture) this.baseService.get(NewsPicture.class, id);
 		String json=JSON.toJSONString(news, true);
@@ -126,6 +142,10 @@ public class IndexAction extends BaseAction {
 		}
 		return null;
 	}
+	/**
+	 * 机构列表
+	 * @return
+	 */
 	public String organizationList(){
 		String hql="";
 		if(industryId==0){
@@ -144,6 +164,10 @@ public class IndexAction extends BaseAction {
 		this.list=this.baseService.getByHal(hql);
 		return "success";
 	}
+	/**
+	 * 找机构
+	 * @return
+	 */
 	public String zhaojigou(){
 		this.industryList=this.baseService.getByHal("from organizationindustry");
 		this.regionalList=this.baseService.getByHal("from organizationregional");
@@ -157,6 +181,10 @@ public class IndexAction extends BaseAction {
 		
 		return "success";
 	}
+	/**
+	 * 根据id过的老师详细信息
+	 * @return
+	 */
 	public String teacherMessage(){
 		TeacherUser t=(TeacherUser) this.baseService.get(TeacherUser.class, id);
 		String json=JSON.toJSONString(t, true);
@@ -176,6 +204,10 @@ public class IndexAction extends BaseAction {
 		}
 		return null;
 	}
+	/**
+	 * 发表留言
+	 * @return
+	 */
 	public String addMessage(){
 		this.messages=new Message();
 		this.messages.setName(name);
@@ -186,14 +218,19 @@ public class IndexAction extends BaseAction {
 		this.baseService.save(this.messages);
 		return "index";
 	}
+	/**
+	 * 找老师
+	 * @return
+	 */
 	public String zhaolaoshi(){
 		this.teacherCategoryList=this.baseService.getByHal("from teachercategory");
-		this.teacherList=this.baseService.getByHal("from teacher");
-		List l_teachersList=this.baseService.getByHal("from teacheruser t where t.category!=null and t.ishuiyuan=false");
-		this.teacherList2=this.baseService.getByHal("from teacheruser t where t.ishuiyuan=true");
-		this.teacherList2.addAll(l_teachersList);
+		
 		return "success";
 	}
+	/**
+	 * 老师列表
+	 * @return
+	 */
 	public String teacherList(){
 		if(id==0){
 			this.teacherList=this.baseService.getByHal("from teacher");
@@ -208,6 +245,10 @@ public class IndexAction extends BaseAction {
 		this.teacherList2.addAll(l_teacherList);
 		return "success";
 	}
+	/**
+	 * 图书列表
+	 * @return
+	 */
 	public String bookList(){
 		if(id==0){
 			this.list=new ArrayList();
@@ -270,15 +311,27 @@ public class IndexAction extends BaseAction {
 		}
 		return null;
 	}
+	/**
+	 * 根据id显示试题内容
+	 * @return
+	 */
 	public String showInscribes(){
 		this.inscribes=(Inscribes)this.baseService.get(Inscribes.class, id);
 		return "success";
 	}
+	/**
+	 * 找学生
+	 * @return
+	 */
 	public String zhaoxuesheng(){
 		this.studentCategoryList=this.baseService.getByHal("from studentcategory");
 		this.studentList=this.baseService.getByHal("from studentuser s where s.category!=null order by state desc");
 		return "success";
 	}
+	/**
+	 * 学生列表
+	 * @return
+	 */
 	public String studentUserList(){
 		if(id==0){
 			this.studentList=this.baseService.getByHal("from studentuser s where s.category!=null order by state desc");
@@ -287,6 +340,10 @@ public class IndexAction extends BaseAction {
 		this.studentList=this.baseService.getByHal("from studentuser s where s.category.id="+id);
 		return "success";
 	}
+	/**
+	 * 获得学生详细信息
+	 * @return
+	 */
 	public String studentMessage(){
 		StudentUser studentUser=(StudentUser) this.baseService.get(StudentUser.class, id);
 		
@@ -308,10 +365,18 @@ public class IndexAction extends BaseAction {
 		}
 		return null;
 	}
+	/**
+	 * 找优惠
+	 * @return
+	 */
 	public String zhaoyouhui(){
 		
 		return "success";
 	}
+	/**
+	 * 活动列表
+	 * @return
+	 */
 	public String artivitiesList(){
 		try {
 			orderby.add("id desc");
@@ -322,6 +387,10 @@ public class IndexAction extends BaseAction {
 		this.pageModel.setUrl("index_zhaoyouhui?pageNum=");
 		return "success";
 	}
+	/**
+	 * 根据id获得活动内容
+	 * @return
+	 */
 	public String getArtivitiesById(){
 		this.activicies=(Activities)this.baseService.get(Activities.class, id);
 		String json=JSON.toJSONString(this.activicies, true);
@@ -341,12 +410,19 @@ public class IndexAction extends BaseAction {
 		}
 		return null;
 	}
+	/**
+	 * 活动照片
+	 * @return
+	 */
 	public String huodongzhaopian(){
 		this.list=this.baseService.getByHal("from inscribescategoryone");
 		return "success";
 	}
+	/**
+	 * 在线留言
+	 * @return
+	 */
 	public String zaixianliuyan(){
-		System.out.println("在线留言");
 		return "success";
 	}
 	public List<NewsPicture> getNewspicList() {

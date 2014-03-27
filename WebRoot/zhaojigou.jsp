@@ -83,6 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </s:iterator>
           </ul>
       </div>
+      <div id="tishi-tanchu" style="width: 153px; height: 153px; background:url(img/tishi_jigou.png);position:absolute; top: 84px; left: 30px;"></div>
       <div id="jigou-list">
         <ul>
         
@@ -91,6 +92,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script>
+    setTimeout(function(){
+    	$('#tishi-tanchu').hide(500);
+    },3000);
   //弹出注册按钮
     $('.fun_tanchu_zhuce').mouseover(function(){
     	$(this).animate({right:0},500)

@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
       <a href='javascript:void(0);' id="teacher-qiehuan-left" style="position:absolute; top: 180px; left: -175px; display:block; width: 40px; height: 70px; background:url(img/qiehuan_left.png); z-index: 1000;"></a>
       <a href='javascript:void(0);' id="teacher-qiehuan-right" style="position:absolute; top: 180px; left:710px; display:block; width: 40px; height: 70px; background:url(img/qiehuan_right.png); z-index: 1000;"></a>
-      <!-- <div id="tishi-tanchu" style="width: 153px; height: 153px; background:url(img/tishi_laoshi.png);position:absolute; top: -14px; left: 30px;"></div> -->
+      <div id="tishi-tanchu" style="width: 153px; height: 153px; background:url(img/tishi_laoshi.png);position:absolute; top: -14px; left: 30px;"></div>
  
       <div id="teacher_paixu">
       	<p id="teacher_paixu_moren" class="active">默认</p>
@@ -96,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript">
-    $('#teacher_paixu_moren').click(function(){
+    $('#teacher_paixu_moren').live('click',function(){
     	var list=$('#laoshi-list #body .mCSB_container').children();
     	list.sort(function(a,b){
     		return $(a).attr('data-moren')-$(b).attr('data-moren')

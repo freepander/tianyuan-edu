@@ -76,6 +76,8 @@ public class TeacherUser {
 	private boolean newHuiYuan;
 	//剩余会员天数
 	private int huiYuanDay;
+	//2014.04.17 隐藏属性，只提供后台查看
+	private String hiddenString;
 	public double getSoucre() {
 		return soucre;
 	}
@@ -261,6 +263,12 @@ public class TeacherUser {
 	}
 	public void setHuiYuanDay(int huiYuanDay) {
 		this.huiYuanDay = huiYuanDay;
+	}
+	public String getHiddenString() {
+		return hiddenString;
+	}
+	public void setHiddenString(String hiddenString) {
+		this.hiddenString = hiddenString;
 	}
 	
 	

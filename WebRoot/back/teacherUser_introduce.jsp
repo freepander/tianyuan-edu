@@ -38,6 +38,7 @@ p{margin-left: 60px;}
 <span>家庭住址:</span><p><s:property value="teacherUser.address"/></p>
 <span>备注：</span><p><s:property value="teacherUser.recommend"/></p>
 <span>本周点击量：</span><p><s:property value="teacherUser.dianji"/></p>
+<span>后台管理备注：</span><p><s:property value="teacherUser.hiddenString"/></p>
 </div>
 </body>
 </html>

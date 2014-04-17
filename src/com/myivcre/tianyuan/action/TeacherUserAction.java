@@ -39,6 +39,7 @@ public class TeacherUserAction extends BaseAction {
 	private String post2;
 	private String logo;
 	private String sex;
+	private String hiddenString;
 	private boolean isNew;
 	private TeacherUser teacherUser;
 	private List categoryList;
@@ -85,6 +86,7 @@ public class TeacherUserAction extends BaseAction {
 		this.teacherUser.setAddress(address);
 		this.teacherUser.setLogo(logo);
 		this.teacherUser.setHuiYuanDay(huiYuanDay);
+		this.teacherUser.setHiddenString(hiddenString);
 		this.baseService.update(this.teacherUser);
 		return "list";
 	}
@@ -115,6 +117,7 @@ public class TeacherUserAction extends BaseAction {
 		this.teacherUser.setAddress(address);
 		this.teacherUser.setLogo(logo);
 		this.teacherUser.setHuiYuanDay(0);
+		this.teacherUser.setHiddenString(hiddenString);
 		this.baseService.save(this.teacherUser);
 		return "list";
 	}
@@ -207,6 +210,12 @@ public class TeacherUserAction extends BaseAction {
 		this.name = name;
 	}
 	
+	public String getHiddenString() {
+		return hiddenString;
+	}
+	public void setHiddenString(String hiddenString) {
+		this.hiddenString = hiddenString;
+	}
 	public String getPassword() {
 		return password;
 	}

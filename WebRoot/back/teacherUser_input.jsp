@@ -110,7 +110,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      	</select>
 		  </div>
 		</div>
-         <div class="row">
+		<div class="control-group">
+           <label class="control-label">后台管理备注：</label>
+           <div class="controls">
+           	<textarea class="input-normal control-text" name="hiddenString" style=" width: 500px;"><s:property value="teacherUser.hiddenString"/></textarea>
+           </div>
+         </div>
+         <div class="row" style="clear:both;">
            <div class="form-actions offset3">
              <button type="submit" class="button button-primary">保存</button>
              <button type="reset" class="button">重置</button>

@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           	<s:if test="!ishuiyuan">
           		<a href="back/teacherUser_setHuiyuan?id=<s:property value="id"/>" class="button button-normal">设置为会员</a>
           	</s:if>
-          	<a href="back/teacherUser_input?id=<s:property value="id"/>" target="_blank" class="button button-primary">更改信息</a>
+          	<a href="back/teacherUser_input?id=<s:property value="id"/>" class="button button-primary">更改信息</a>
           	<s:if test="newHuiYuan==true">
           	<a href="back/teacherUser_setOld?id=<s:property value="id"/>" class="button button-primary">新会员请关注</a>
           	</s:if>

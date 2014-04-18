@@ -22,9 +22,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <tr>
           <th width="15">#</th>
           <th>姓名</th>
-          <th>学历</th>
           <th>性别</th>
+          <th>学校</th>
           <th>科目</th>
+          <th>备注</th>
           <th>会员编号/剩余天数</th>
           <th>操作</th>
         </tr>
@@ -34,9 +35,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <tr>
           <td><s:property value="id"/></td>
           <td><s:property value="name"/></td>
-          <td><s:property value="post"/></td>
           <td><s:property value="sex"/></td>
+          <td><s:property value="political"/></td>
           <td><s:property value="lesson"/></td>
+          <td><s:property value="hiddenString"/></td>
           <td><s:if test="ishuiyuan"><s:property value="huiyuannumber"/>/<s:property value="huiYuanDay"/></s:if><s:if test="!ishuiyuan">否</s:if></td>
           <td>
           	<a href="back/teacherUser_introduce?id=<s:property value="id"/>" target="_blank" class="button button-primary">详细信息</a>

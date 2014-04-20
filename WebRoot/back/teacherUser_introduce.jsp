@@ -23,7 +23,9 @@ p{margin-left: 60px;}
 <hr>
 <h3>电话：<s:property value="teacherUser.telphone"/></h3>
 <h3>qq:<s:property value="teacherUser.qq"/></h3>
+<span>后台管理备注：</span><p><s:property value="teacherUser.hiddenString"/></p>
 <span>用户名：</span><p><s:property value="teacherUser.username"/></p>
+<span>密码：</span><p><s:property value="teacherUser.password"/></p>
 <span>性别：</span><p><s:property value="teacherUser.sex"/></p>
 <span>授课类别:</span><p><s:property value="teacherUser.category.name"/></p>
 <span>讲授科目:</span><p><s:property value="teacherUser.lesson"/></p>
@@ -38,7 +40,6 @@ p{margin-left: 60px;}
 <span>家庭住址:</span><p><s:property value="teacherUser.address"/></p>
 <span>备注：</span><p><s:property value="teacherUser.recommend"/></p>
 <span>本周点击量：</span><p><s:property value="teacherUser.dianji"/></p>
-<span>后台管理备注：</span><p><s:property value="teacherUser.hiddenString"/></p>
 </div>
 </body>
 </html>

@@ -32,7 +32,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <th width="15"></th>
           <th>#</th>
           <th>名称</th>
-          <th>性别</th>
+          <th>学生性别</th>
+          <th>天源备注</th>
           <th>操作</th>
         </tr>
       </thead>
@@ -44,6 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <td><s:property value="id"/></td>
           <td><s:property value="name"/></td>
           <td><s:property value="sex"/></td>
+          <td><s:property value="beizhu"/></td>
           <td>
           	<a href="back/studentUser_input?id=<s:property value="id"/>" class="button button-primary">编辑</a>
           	<a href="back/studentUser_delete?id=<s:property value="id"/>" class="button button-danger">删除</a>

@@ -35,6 +35,8 @@ public class StudentUser {
 	private String recommend;
 	private Date date;
 	private boolean newcome;
+	//天源备注
+	private String beizhu;
 	public long getId() {
 		return id;
 	}
@@ -72,6 +74,12 @@ public class StudentUser {
 		this.name = name;
 	}
 	
+	public String getBeizhu() {
+		return beizhu;
+	}
+	public void setBeizhu(String beizhu) {
+		this.beizhu = beizhu;
+	}
 	public String getSex() {
 		return sex;
 	}

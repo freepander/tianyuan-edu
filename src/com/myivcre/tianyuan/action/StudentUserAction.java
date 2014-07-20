@@ -33,6 +33,7 @@ public class StudentUserAction extends BaseAction {
 	private Date date;
 	private int[] idList;
 	private String idList2;
+	private String beizhu;
 	public String list(){
 		this.list = this.baseService.getByHal("from studentuser order by id desc");		
 		return "success";
@@ -52,6 +53,7 @@ public class StudentUserAction extends BaseAction {
 		this.studentUser.setTime(time);
 		this.studentUser.setIsvisible(true);
 		this.studentUser.setLogo(logo);
+		this.studentUser.setBeizhu(beizhu);
 		this.baseService.save(this.studentUser);		
 		return "list";
 	}
@@ -74,14 +76,9 @@ public class StudentUserAction extends BaseAction {
 		return "list";
 	}
 	public String deletes(){
-		System.out.println("deletes");
-		System.out.println(idList2);
 		idList2=idList2.replace(" ", "");
-		System.out.println("---"+idList2);
 		String[] ss=idList2.split(",");
-		System.out.println(ss.length);
 		for (int i=0;i<ss.length;i++) {
-			System.out.println(ss[i]);
 			long ids=Long.parseLong(ss[i]);
 			StudentUser stu=(StudentUser) this.baseService.get(StudentUser.class, ids);
 			this.baseService.delete(stu);
@@ -111,6 +108,7 @@ public class StudentUserAction extends BaseAction {
 		this.studentUser.setDate(new Date());
 		this.studentUser.setUsername(username);
 		this.studentUser.setPassword(password);
+		this.studentUser.setBeizhu(beizhu);
 		this.baseService.save(this.studentUser);
 		return "list";
 	}
@@ -138,6 +136,7 @@ public class StudentUserAction extends BaseAction {
 		this.studentUser.setLogo(logo);
 		this.studentUser.setUsername(username);
 		this.studentUser.setPassword(password);
+		this.studentUser.setBeizhu(beizhu);
 		this.baseService.save(this.studentUser);
 		return "list";
 	}
@@ -164,6 +163,12 @@ public class StudentUserAction extends BaseAction {
 	}
 	public String getAge() {
 		return age;
+	}
+	public String getBeizhu() {
+		return beizhu;
+	}
+	public void setBeizhu(String beizhu) {
+		this.beizhu = beizhu;
 	}
 	public void setAge(String age) {
 		this.age = age;

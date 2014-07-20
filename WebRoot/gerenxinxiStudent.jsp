@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			<label>姓名:</label><input disabled="disabled" name="name" value="<s:property value="studentUser.name" />" type="text">
     		</fieldset>
     		<fieldset>
-    			<label>性别：</label><input disabled="disabled" value="男" name="sex" type="radio" <s:if test="asex==true">checked</s:if> />男<input disabled="disabled" value="女" name="sex" type="radio" <s:if test="asex==false">checked</s:if> />女<br>
+    			<label>学生性别：</label><input disabled="disabled" value="男" name="sex" type="radio" <s:if test="asex==true">checked</s:if> />男<input disabled="disabled" value="女" name="sex" type="radio" <s:if test="asex==false">checked</s:if> />女<br>
     		</fieldset>
     		<fieldset>
     			<label>年龄：</label><input disabled="disabled" name="age" value="<s:property value="studentUser.age" />" type="text">

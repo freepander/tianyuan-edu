@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <div class="controls"><input class="input-normal control-text" type="text" name="name" value="<s:property value="studentUser.name"/>" ></div>
         </div>
         <div class="control-group">
-           <label class="control-label">性别：</label>
+           <label class="control-label">学生性别：</label>
            <div class="controls"><input class="input-normal control-text" type="text" name="sex" value="<s:property value="studentUser.sex"/>" ></div>
         </div>
         <div class="control-group">
@@ -58,6 +58,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="control-group">
            <label class="control-label">价格：</label>
            <div class="controls"><input class="input-normal control-text" type="text" name="money" value="<s:property value="studentUser.money"/>" ></div>
+        </div>
+        <div class="control-group">
+           <label class="control-label">天源备注：</label>
+           <div class="controls"><input class="input-normal control-text" type="text" name="beizhu" value="<s:property value="studentUser.beizhu"/>" ></div>
         </div>
         
          <div class="control-group">
